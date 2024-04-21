@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class division extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    public function district() {
+        return $this->belongsTo(District::class);
+    }
 }

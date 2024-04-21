@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class assesment_tool extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    public function organization() {
+        return $this->belongsTo(Organization::class);
+    }
 }
