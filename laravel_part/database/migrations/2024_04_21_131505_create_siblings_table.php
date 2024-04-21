@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('siblings', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('gander');
+            $table->integer('class_id');
+            $table->string('group_name');
             $table->timestamps();
         });
     }

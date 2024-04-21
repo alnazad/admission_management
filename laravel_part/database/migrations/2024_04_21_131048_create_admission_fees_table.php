@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('admission_fees', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id');
+            $table->integer('institute_type_id');
+            $table->integer('institute_id');
+            $table->string('student_id');
+            $table->string('student_name');
+            $table->decimal('fee',10,2);
+            $table->string('remarks');
             $table->timestamps();
         });
     }

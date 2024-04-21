@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\admission_assesment;
+use App\Models\applicant_assesment;
 use Illuminate\Http\Request;
 
-class AdmissionAssesmentController extends Controller
+class ApplicantAssesmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class AdmissionAssesmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(admission_assesment $admission_assesment)
+    public function show(applicant_assesment $admission_assesment)
     {
         //
     }
@@ -42,7 +42,7 @@ class AdmissionAssesmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(admission_assesment $admission_assesment)
+    public function edit(applicant_assesment $admission_assesment)
     {
         //
     }
@@ -50,7 +50,7 @@ class AdmissionAssesmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, admission_assesment $admission_assesment)
+    public function update(Request $request, applicant_assesment $applicant_assesment)
     {
         //
     }
@@ -58,7 +58,7 @@ class AdmissionAssesmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(admission_assesment $admission_assesment)
+    public function destroy(applicant_assesment $applicant_assesment)
     {
         //
     }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('institutes', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('institute_type_id');
+            $table->foreignId('class_id');
             $table->timestamps();
         });
     }

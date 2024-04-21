@@ -11,8 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admission_assesments', function (Blueprint $table) {
+        Schema::create('applicant_assesments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id');
+            $table->integer('institute_type_id');
+            $table->integer('institute_id');
+            $table->foreignId('assesment_tools_id');
+            $table->integer('student_id');
+            $table->string('student_name');
+            $table->decimal('assesment_markes',10,2);
+            $table->string('remarks');
             $table->timestamps();
         });
     }

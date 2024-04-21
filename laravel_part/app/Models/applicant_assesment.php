@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class admission_assesment extends Model
+class applicant_assesment extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
