@@ -8805,16 +8805,10 @@ sub {
 sup {
   top: -.5em;
 }
-
-a {
-  color: #007bff;
-  text-decoration: none;
-  background-color: transparent;
-}
-
 a:hover {
   color: #0056b3;
   text-decoration: underline;
+  background-color: red;
 }
 
 a:not([href]):not([class]) {
@@ -24090,6 +24084,8 @@ div.tagsinput span.tag a {
 
 .navbar + .page-body-wrapper {
   padding-top: calc(4.625rem + 1.875rem);
+  margin-top: 106px;
+  
 }
 
 .main-panel {
@@ -24129,7 +24125,7 @@ div.tagsinput span.tag a {
   font-family: "Poppins", sans-serif;
   font-weight: normal;
   padding: 0;
-  width: 236px;
+  width: 300px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
