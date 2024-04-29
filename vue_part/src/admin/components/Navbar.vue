@@ -20,9 +20,9 @@
                     
                 </div>
                 <div class="col-3">
-                    <a style="text-decoration: none;" href="">
+                    <router-link style="text-decoration: none;" :to="{name:'AdmissionManagement'}">
                         <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 15px;padding-top: 11px;font-weight: bold;font-size: large;text-align: center; color:black;width: 379px;margin-left: -18px;border:solid;border-color:#0000001f">Admission Management</div>
-                    </a>
+                    </router-link>
                     
                 </div>
                 <div class="col-3">

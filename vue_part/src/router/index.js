@@ -28,34 +28,39 @@ const router = createRouter({
           component: () => import('../admin/nazad/OnlineAdmissionView.vue')
         },
         {
-          path: '/disability',
+          path: '/DisabilityAssesment',
           name: 'DisabilityAssesment',
           component: () => import('../views/DisabilityAssView.vue')
         },
         {
-          path: '/applicant',
-          name: 'applicant',
+          path: '/ApplicantAssesment',
+          name: 'ApplicantAssesment',
           component: () => import('../views/ApplicantAssesmentView.vue')
         },
         {
-          path: '/eligible',
-          name: 'eligible',
+          path: '/EligibleStudent',
+          name: 'EligibleStudent',
           component: () => import('../views/EligibleStudentView.vue')
         },
         {
-          path: '/final',
-          name: 'final',
+          path: '/FinalStudent',
+          name: 'FinalStudent',
           component: () => import('../views/FinalStudentView.vue')
         },
         {
-          path: '/admissionfee',
-          name: 'admissionfee',
+          path: '/AdmissionFee',
+          name: 'AdmissionFee',
           component: () => import('../views/AdmissionFeeView.vue')
         },
         {
-          path: '/registration',
-          name: 'registration',
+          path: '/StudentRegistration',
+          name: 'StudentRegistration',
           component: () => import('../views/StudentRegView.vue')
+        },
+        {
+          path: '/AdmissionManagement',
+          name: 'AdmissionManagement',
+          component: () => import('@/admin/nazad/AdmissionManagement.vue')
         },
       ]
     },

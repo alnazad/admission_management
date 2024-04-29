@@ -217,42 +217,42 @@ import { RouterLink } from 'vue-router';
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" data-toggle="collapse" :to="{name:'OnlineAdmission'}" aria-expanded="false"
+                <router-link class="nav-link" data-toggle="collapse" :to="{name:'DisabilityAssesment'}" aria-expanded="false"
                     aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Disability Assesment Tools</span>
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" data-toggle="collapse" :to="{name:'OnlineAdmission'}" aria-expanded="false"
+                <router-link class="nav-link" data-toggle="collapse" :to="{name:'ApplicantAssesment'}" aria-expanded="false"
                     aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Applicant Assesment</span>
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" data-toggle="collapse" :to="{name:'OnlineAdmission'}" aria-expanded="false"
+                <router-link class="nav-link" data-toggle="collapse" :to="{name:'EligibleStudent'}" aria-expanded="false"
                     aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Eligible Student List</span>
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" data-toggle="collapse" :to="{name:'OnlineAdmission'}" aria-expanded="false"
+                <router-link class="nav-link" data-toggle="collapse" :to="{name:'FinalStudent'}" aria-expanded="false"
                     aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Final Student Approval</span>
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" data-toggle="collapse" :to="{name:'OnlineAdmission'}" aria-expanded="false"
+                <router-link class="nav-link" data-toggle="collapse" :to="{name:'AdmissionFee'}" aria-expanded="false"
                     aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Admission Fee Management</span>
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" data-toggle="collapse" :to="{name:'OnlineAdmission'}" aria-expanded="false"
+                <router-link class="nav-link" data-toggle="collapse" :to="{name:'StudentRegistration'}" aria-expanded="false"
                     aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Student Registration</span>
