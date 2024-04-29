@@ -13,27 +13,27 @@
         </div>
         <div style="background-color:#c4d59f; height: 60px;" class="col-12">
             <div class="row">
-                <div class="col-3">
+                <div class="col-3" style="">
                     <a style="text-decoration: none;"  href="">
-                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 17px;padding-top: 15px;font-weight: bold;font-size: large;text-align: center; color:black;">Institute Management</div>
+                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 16px;padding-top: 10px;font-weight: bold;font-size: large;text-align: center; color:black;width: 350px;margin-left: -12px;border:solid;border-color:#0000001f">Institute Management</div>
                     </a>
                     
                 </div>
                 <div class="col-3">
                     <a style="text-decoration: none;" href="">
-                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 17px;padding-top: 15px;font-weight: bold;font-size: large;text-align: center; color:black;">Admission Management</div>
+                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 16px;padding-top: 15px;font-weight: bold;font-size: large;text-align: center; color:black;width: 350px;margin-left: -12px;border:solid;border-color:#0000001f">Admission Management</div>
                     </a>
                     
                 </div>
                 <div class="col-3">
                     <a style="text-decoration: none;" href="">
-                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 17px;padding-top: 15px;font-weight: bold;font-size: large;text-align: center; color:black;">Student Management</div>
+                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 16px;padding-top: 15px;font-weight: bold;font-size: large;text-align: center; color:black;width: 350px;margin-left: -12px;border:solid;border-color:#0000001f">Student Management</div>
                     </a>
                     
                 </div>
                 <div class="col-3">
                     <a style="text-decoration: none;" href="">
-                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 17px;padding-top: 15px;font-weight: bold;font-size: large;text-align: center; color:black;">Exam & Result Management</div>
+                        <div onmouseover="this.style.background='rgb(214 226 190)'"onmouseout="this.style.background='#c4d59f'" style="padding-bottom: 16px;padding-top: 15px;font-weight: bold;font-size: large;text-align: center; color:black;width: 350px;margin-left: -12px;border:solid;border-color:#0000001f">Exam & Result Management</div>
                     </a>
                     
                 </div>
