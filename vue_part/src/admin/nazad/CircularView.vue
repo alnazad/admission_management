@@ -1,19 +1,32 @@
 <template>
-  <div class="container">
-        <h1 style="text-align: center;">Circular List</h1>
+    <div class="container">
+
         <!-- <div><RouterLink class="btn btn-primary" to="">Add Income</RouterLink></div> -->
-        <table class="table table-bordered">
-            <tr>
-                <th>SL</th>
-                <th>category</th>
-                <th>Date</th>
-                <th>Employee Name</th>
-                <th>Amount</th>
-                <th>Details</th>
-                <th>Income Source</th>
-                <th>Action</th>
-            </tr>
-            <!-- <tr v-for="(data, k) in list" :key="k">
+        <div style="border:3px solid;border-color:#514c4c82">
+            <div style="display: flex; justify-content: space-between;">
+                <a class="btn" style="order: 1; background-color: #005b5b; color: white;font-weight: bold;">Circulation List</a>
+                <a class="btn" style="order: 2; background-color: #005b5b; color: white;font-weight: bold;">Add New</a>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th>SL</th>
+                    <th>Organization</th>
+                    <th>Type</th>
+                    <th>Institute Name</th>
+                    <th>Circular Name</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>BSAF</td>
+                    <td>Blind Child</td>
+                    <td>Helal Academy</td>
+                    <td>Admission Circulation</td>
+                    <td>30-04-2024</td>
+                    <td><span ><i class="nazad-delete"></i><i class="nazad-edit"></i></span></td>
+                </tr>
+                <!-- <tr v-for="(data, k) in list" :key="k">
                 <td>{{++k}}</td>
                 <td>{{ data.income_category.name }}</td>
                 <td>{{ data.date }}</td>
@@ -27,7 +40,8 @@
                     </div>
                 </td>
             </tr> -->
-        </table>
+            </table>
+        </div>
     </div>
 </template>
 <!-- <script>
@@ -163,4 +177,3 @@ export default {
     }
 }
 </script> -->
-

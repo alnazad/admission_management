@@ -5,7 +5,7 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->prefix('admin')->group(function(){
+Route::middleware('auth:sanctum')->prefix('login')->group(function(){
   Route::resource('users',UserController::class)->names('users');
 });
 Route::get('/user', function (Request $request) {
