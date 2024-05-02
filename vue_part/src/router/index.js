@@ -3,13 +3,14 @@ import HomeView from '../views/HomeView.vue'
 import Admin from '@/admin/views/Admin.vue'
 import Dashboard from '@/admin/views/Dashboard.vue'
 import CircularView from '@/admin/nazad/CircularView.vue'
+import LoginView from '@/admin/nazad/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/login',
-      name: 'login',
+    { 
+      path: '/admin',
+      name: 'admin',
       component: Admin,
       children: [
         {
@@ -63,6 +64,7 @@ const router = createRouter({
           component: () => import('@/admin/nazad/AdmissionManagement.vue')
         },
       ]
+      
     },
     {
       path: '/',
@@ -70,12 +72,12 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/login',
+      name: 'login',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('@/admin/nazad/LoginView.vue')
     },
     
     
