@@ -46,7 +46,6 @@ export default {
     data() {
         return {
             urlO: 'http://localhost:8000/api/admin/organizations',
-            urlI: 'http://localhost:8000/api/admin/institutes',
             listO:[],
             listT:[],
             listI:[],
