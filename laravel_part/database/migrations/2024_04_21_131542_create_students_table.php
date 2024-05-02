@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('class_names_id');
+            $table->foreignId('siblings_id');
+            $table->timestamps(); 
         });
     }
 

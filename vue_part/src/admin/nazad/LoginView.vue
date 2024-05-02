@@ -8,7 +8,7 @@
                             <h3 class="mb-5">Sign in</h3>
                             <form v-on:submit.prevent="login">
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="email" v-model="email" class="form-control form-control-lg"
+                                    <input type="text" v-model="email" class="form-control form-control-lg"
                                         placeholder="email" />
                                 </div>
                                 <div data-mdb-input-init class="form-outline mb-4">

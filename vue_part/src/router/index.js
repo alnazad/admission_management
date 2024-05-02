@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Admin from '@/admin/views/Admin.vue'
 import Dashboard from '@/admin/views/Dashboard.vue'
-import CircularView from '@/admin/nazad/CircularView.vue'
+import CircularView from '@/admin/nazad/Circular/CircularView.vue'
 import LoginView from '@/admin/nazad/LoginView.vue'
 
 const router = createRouter({
@@ -24,39 +24,44 @@ const router = createRouter({
           component:CircularView
         },
         {
+          path: 'addcirculation',
+          name: 'addcirculation',
+          component: ()=> import('@/admin/nazad/Circular/AddCircular.vue') 
+        },
+        {
           path: 'OnlineAdmission',
           name: 'OnlineAdmission',
-          component: () => import('../admin/nazad/OnlineAdmissionView.vue')
+          component: () => import('../admin/nazad/OnlineAdmission/OnlineAdmissionView.vue')
         },
         {
           path: '/DisabilityAssesment',
           name: 'DisabilityAssesment',
-          component: () => import('../views/DisabilityAssView.vue')
+          component: () => import('../admin/nazad/DisabilityAss/DisabilityAssView.vue')
         },
         {
           path: '/ApplicantAssesment',
           name: 'ApplicantAssesment',
-          component: () => import('../views/ApplicantAssesmentView.vue')
+          component: () => import('../admin/nazad/ApplicantAssesment/ApplicantAssesmentView.vue')
         },
         {
           path: '/EligibleStudent',
           name: 'EligibleStudent',
-          component: () => import('../views/EligibleStudentView.vue')
+          component: () => import('../admin/nazad/EligibleStudent/EligibleStudentView.vue')
         },
         {
           path: '/FinalStudent',
           name: 'FinalStudent',
-          component: () => import('../views/FinalStudentView.vue')
+          component: () => import('../admin/nazad/FinalStudent/FinalStudentView.vue')
         },
         {
           path: '/AdmissionFee',
           name: 'AdmissionFee',
-          component: () => import('../views/AdmissionFeeView.vue')
+          component: () => import('../admin/nazad/AdmissionFee/AdmissionFeeView.vue')
         },
         {
           path: '/StudentRegistration',
           name: 'StudentRegistration',
-          component: () => import('../views/StudentRegView.vue')
+          component: () => import('../admin/nazad/StudentReg/StudentRegView.vue')
         },
         {
           path: '/AdmissionManagement',

@@ -5,7 +5,7 @@
         <div style="border:3px solid;border-color:#514c4c82">
             <div style="display: flex; justify-content: space-between;">
                 <a class="btn" style="order: 1; background-color: #005b5b; color: white;font-weight: bold;">Circulation List</a>
-                <a class="btn" style="order: 2; background-color: #005b5b; color: white;font-weight: bold;">Add New</a>
+                <RouterLink :to="{name:'addcirculation'}" class="btn" style="order: 2; background-color: #005b5b; color: white;font-weight: bold;">Add New</RouterLink>
             </div>
             <table class="table table-bordered">
                 <tr>
@@ -24,7 +24,11 @@
                     <td>Helal Academy</td>
                     <td>Admission Circulation</td>
                     <td>30-04-2024</td>
-                    <td><span ><i class="nazad-delete"></i><i class="nazad-edit"></i></span></td>
+                    <td>
+                        <a class="btn btn-primary" href="">
+                        <i class="fa-solid fa-pen-to-square"/></a>
+                        <a class="btn btn-danger" href=""><i class="fa-solid fa-trash"/></a>
+                    </td>
                 </tr>
                 <!-- <tr v-for="(data, k) in list" :key="k">
                 <td>{{++k}}</td>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('gander');
-            $table->integer('class_id');
+            $table->integer('class_names_id');
             $table->string('group_name');
             $table->timestamps();
         });
