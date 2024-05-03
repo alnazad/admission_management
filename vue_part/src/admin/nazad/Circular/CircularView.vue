@@ -7,12 +7,17 @@
                 <a class="btn" style="order: 1; background-color: #005b5b; color: white;font-weight: bold;">Circulation List</a>
                 <RouterLink :to="{name:'addcirculation'}" class="btn" style="order: 2; background-color: #005b5b; color: white;font-weight: bold;">Add New</RouterLink>
             </div>
-            <table class="table table-bordered">
-                <tr>
+    <div style="margin-top: 10px;color: blue;text-align: center;">
+        <label for=""> Circular Name
+            <input type="text">
+        </label>
+    </div>
+            <table class="table table-bordered border-primary">
+                <tr style="background-color: #005b5b;color: white;">
                     <th>SL</th>
                     <th>Organization</th>
-                    <th>Type</th>
-                    <th>Institute Name</th>
+                    <th>I. Type</th>
+                    <th>I. Name</th>
                     <th>Circular Name</th>
                     <th>Date</th>
                     <th>Action</th>

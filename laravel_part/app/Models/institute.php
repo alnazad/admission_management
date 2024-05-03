@@ -15,4 +15,7 @@ class institute extends Model
     public function classname(){
         return $this->hasMany(Class_name::class);
     }
+    public function assesment_tools(){
+        return $this->hasMany(assesment_tool::class);
+    }
 }

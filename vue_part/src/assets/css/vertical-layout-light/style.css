@@ -10152,19 +10152,19 @@ pre code {
   padding: 0.3rem;
 }
 
-.table-bordered {
+/* .table-bordered {
   border: 1px solid #f3f3f3;
-}
+} */
 
-.table-bordered th,
+/* .table-bordered th,
 .table-bordered td {
   border: 1px solid #f3f3f3;
-}
+} */
 
-.table-bordered thead th,
+/* .table-bordered thead th,
 .table-bordered thead td {
   border-bottom-width: 2px;
-}
+} */
 
 .table-borderless th,
 .table-borderless td,
@@ -10396,9 +10396,9 @@ pre code {
   border-color: #454d55;
 }
 
-.table-dark.table-bordered {
+/* .table-dark.table-bordered {
   border: 0;
-}
+} */
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(255, 255, 255, 0.05);
@@ -10416,9 +10416,9 @@ pre code {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .table-responsive-sm > .table-bordered {
+  /* .table-responsive-sm > .table-bordered {
     border: 0;
-  }
+  } */
 }
 
 @media (max-width: 767.98px) {
@@ -10428,9 +10428,9 @@ pre code {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .table-responsive-md > .table-bordered {
+  /* .table-responsive-md > .table-bordered {
     border: 0;
-  }
+  } */
 }
 
 @media (max-width: 991.98px) {
@@ -10440,10 +10440,10 @@ pre code {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .table-responsive-lg > .table-bordered {
+  /* .table-responsive-lg > .table-bordered {
     border: 0;
-  }
-}
+  }*/
+} 
 
 @media (max-width: 1199.98px) {
   .table-responsive-xl {
@@ -10452,9 +10452,9 @@ pre code {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .table-responsive-xl > .table-bordered {
+  /* .table-responsive-xl > .table-bordered {
     border: 0;
-  }
+  } */
 }
 
 .table-responsive {
@@ -10464,9 +10464,9 @@ pre code {
   -webkit-overflow-scrolling: touch;
 }
 
-.table-responsive > .table-bordered {
+/* .table-responsive > .table-bordered {
   border: 0;
-}
+} */
 
 .form-control, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
@@ -18480,10 +18480,10 @@ a.text-dark:hover, a.text-dark:focus {
   .table th {
     background-color: #ffffff !important;
   }
-  .table-bordered th,
+  /* .table-bordered th,
   .table-bordered td {
     border: 1px solid #dee2e6 !important;
-  }
+  } */
   .table-dark {
     color: inherit;
   }
@@ -23332,7 +23332,7 @@ dl li {
 
 .table td img {
   width: 36px;
-  height: 36px;
+  /* height: 36px; */
   border-radius: 100%;
 }
 
@@ -23350,9 +23350,9 @@ dl li {
   border: none;
 }
 
-.table.table-bordered {
+/* .table.table-bordered {
   border-top: 1px solid #f3f3f3;
-}
+} */
 
 /* Toggle Switch */
 .toggle-switch {

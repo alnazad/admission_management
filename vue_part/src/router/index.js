@@ -34,14 +34,29 @@ const router = createRouter({
           component: () => import('../admin/nazad/OnlineAdmission/OnlineAdmissionView.vue')
         },
         {
+          path: 'AddOnlineAdmission',
+          name: 'AddOnlineAdmission',
+          component: () => import('../admin/nazad/OnlineAdmission/AddOnlineAdmission.vue')
+        },
+        {
           path: '/DisabilityAssesment',
           name: 'DisabilityAssesment',
           component: () => import('../admin/nazad/DisabilityAss/DisabilityAssView.vue')
         },
         {
+          path: '/AddDisabilityAssesment',
+          name: 'AddDisabilityAssesment',
+          component: () => import('../admin/nazad/DisabilityAss/AddDisabilityAss.vue')
+        },
+        {
           path: '/ApplicantAssesment',
           name: 'ApplicantAssesment',
           component: () => import('../admin/nazad/ApplicantAssesment/ApplicantAssesmentView.vue')
+        },
+        {
+          path: '/AddApplicantAssesment',
+          name: 'AddApplicantAssesment',
+          component: () => import('../admin/nazad/ApplicantAssesment/AddApplicantAssesment.vue')
         },
         {
           path: '/EligibleStudent',

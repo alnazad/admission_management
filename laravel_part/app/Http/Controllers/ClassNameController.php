@@ -7,20 +7,24 @@ use Illuminate\Http\Request;
 
 class ClassNameController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $class_name=class_name::orderBy('id','desc')->get();
+        return $this->sendResponse($class_name,'class_name list fetched successfully!');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id= $request->id;
+        $data=class_name::where('institutes_id',$id)->get();
+        return $this->sendResponse($data, 'Wish list fetched successfully!');
     }
 
     /**

@@ -9,7 +9,7 @@ class assesment_tool extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    public function organization() {
-        return $this->belongsTo(Organization::class);
+    public function institute() {
+        return $this->belongsTo(institute::class);
     }
 }

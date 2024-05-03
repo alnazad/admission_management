@@ -3,15 +3,18 @@
     <div style="background-color:#005b5b;color: white;height: 50px;padding-top: 10px;padding-left: 10px; "><h4>Add Admission Circulation</h4> </div></div>
     <div class="container" >
         
-        <div class="row" style="border: 1px solid green;">
-            <div class="col-6" >
-                <label style="text-align: right;" class="col-5">Organization name<span style="color: red;">*</span></label>
+        <div class="row" style="border: 1px solid green;color: blue;">
+            <div class="col-6"  style="margin-top:10px">
+                <div>
+                    <label style="text-align: right;" class="col-5">Organization name<span style="color: red;">*</span></label>
                 <select style="text-align: left;" class=" col-7" v-model="organization_id" @change="getInstituteType()">
                     <option>Select one</option>
                     <option v-for="(data, k) in listO" :value="data.id">{{ data.name }}</option>
                 </select>
+                </div>
+                
                 <label style="text-align: right;" class="col-5">Institute Name<span style="color: red;">*</span></label>
-                <select style="text-align: left;" class=" col-7" v-model="institute_id">
+                <select style="text-align: left;" class=" col-7" v-model="institute_id" :disabled="institute_types_id === ''">
                     <option value="">Select one</option>
                     <option v-for="(data, k) in listI" :value="data.id">{{ data.name }}</option>
                 </select>
@@ -23,9 +26,9 @@
                     
                 
             </div>
-            <div class="col-6">
+            <div class="col-6" style="margin-top:10px">
                 <label style="text-align: right;" class="col-5">Institution Type <span style="color: red;">*</span></label>
-                <select style="text-align: left;" class=" col-7" v-model="institute_types_id" @change="getInstitute()">
+                <select style="text-align: left;" class=" col-7" v-model="institute_types_id" @change="getInstitute()" :disabled="organization_id === ''">
                     <option value="">Select one</option>
                     <option v-for="(data, k) in listT" :value="data.id">{{ data.name }}</option>
                 </select>
@@ -55,9 +58,9 @@ export default {
             upload_circular:'',
             circular_discription:'',
             circular_date:'',
-            organization_id:0,
-            institute_types_id:0,
-            institute_id:0,
+            organization_id:"",
+            institute_types_id:"",
+            institute_id:"",
             id:1
 
         }

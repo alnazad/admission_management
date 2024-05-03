@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('assesment_tools', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('institutes_id');
             $table->timestamps();
         });
     }

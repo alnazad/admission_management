@@ -24,8 +24,6 @@ class InstituteController extends Controller
     {
         $id= $request->id;
         $data=institute::where('institute_types_id',$id)->get();
-
-        
         return $this->sendResponse($data, 'Wish list fetched successfully!');
     }
 
