@@ -1,59 +1,135 @@
 <template>
     <div class="container">
 
-<!-- <div><RouterLink class="btn btn-primary" to="">Add Income</RouterLink></div> -->
-<div style="border:3px solid;border-color:#514c4c82">
-    <div style="display: flex; justify-content: space-between;">
-        <a class="btn" style="border: 1; background-color: #005b5b; color: white;font-weight: bold;">Admission List</a>
-        <RouterLink :to="{name:'AddOnlineAdmission'}" class="btn" style="order: 2; background-color: #005b5b; color: white;font-weight: bold;">Add New</RouterLink>
-    </div>
-    <div style="margin-top: 10px;color: blue;text-align: center;">
-        <label for=""> Mobile
-            <input type="text">
-        </label>
-    </div>
-    <table  class="table table-bordered border-primary">
-        <tr style="background-color: #005b5b;color: white;">
-            <th>SL</th>
-            <th>Organization</th>
-            <th>I.Type</th>
-            <th>I.Name</th>
-            <th>Class</th>
-            <th>A.Name</th>
-            <th>Mobile</th>
-            <th>Address</th>
-            <th>Action</th>
-        </tr>
-        <tr style="border: 1px solid blue;">
-            <td>1</td>
-            <td>BSAF</td>
-            <td>Blind Child</td>
-            <td>Helal Academy</td>
-            <td>One</td>
-            <td>Helal Uddin</td>
-            <td>01580331370</td>
-            <td>Dhaka, Kollanpur</td>
-            <td>
-                <a class="btn btn-primary" href="">
-                <i class="fa-solid fa-pen-to-square"/></a>
-                <a class="btn btn-danger" href=""><i class="fa-solid fa-trash"/></a>
-            </td>
-        </tr>
-        <!-- <tr v-for="(data, k) in list" :key="k">
-        <td>{{++k}}</td>
-        <td>{{ data.income_category.name }}</td>
-        <td>{{ data.date }}</td>
-        <td>{{ data.employee.people.name }}</td>
-        <td>{{ data.amount }}</td>
-        <td>{{ data.details }}</td>
-        <td>{{ data.income_source.name}}</td>
-        <td>
-            <div><button class="btn btn-success" @click="update(data.id)">Edit</button>
-                <button class="btn btn-danger" @click="deleteIncome(data.id)">Delete</button>
+        <!-- <div><RouterLink class="btn btn-primary" to="">Add Income</RouterLink></div> -->
+        <div style="border:3px solid;border-color:#514c4c82">
+            <div style="display: flex; justify-content: space-between;">
+                <a class="btn" style="border: 1; background-color: #005b5b; color: white;font-weight: bold;">Admission
+                    List</a>
+                <RouterLink :to="{ name: 'AddOnlineAdmission' }" class="btn"
+                    style="order: 2; background-color: #005b5b; color: white;font-weight: bold;">Add New</RouterLink>
             </div>
-        </td>
-    </tr> -->
-    </table>
-</div>
-</div>
+            <div style="margin-top: 10px;color: blue;text-align: center;">
+                <label for=""> Mobile
+                    <input type="text">
+                </label>
+            </div>
+            <table class="table table-bordered border-primary">
+                <tr style="background-color: #005b5b;color: white;">
+                    <th>SL</th>
+                    <th>Organization</th>
+                    <th>I.Type</th>
+                    <th>I.Name</th>
+                    <th>Class</th>
+                    <th>A.Name</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                <tr style="border: 1px solid blue;" v-for="(data, k) in list" :key="k">
+                    <td>{{++k }}</td>
+                    <td>{{ data.organization.name }}</td>
+                    <td>{{ getInstituteTypeName(data.institute_type_id) }}</td>
+                    <td>{{ getInstitutename(data.institute_id) }}</td>
+                    <td>{{ getClassname(data.class_name_id) }}</td>
+                    <td>{{ data.applicant_name }}</td>
+                    <td>{{ data.mobile }}</td>
+                    <td>{{ data.address }}</td>
+                    <td>
+                        <button style="background: red;" @click="update(data.id)">
+                            <i class="fa-solid fa-pen-to-square" /></button>
+                        <button style="background: red;margin-left: 5px;" @click="deleteOnlineAdmission(data.id)"><i
+                                class="fa-solid fa-trash" /></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </template>
+<script>
+import axios from 'axios';
+export default {
+    data() {
+        return {
+            url: 'http://localhost:8000/api/admin/online_admissions',
+            urlI: 'http://localhost:8000/api/admin/institute_types',
+            urlC: 'http://localhost:8000/api/admin/class_names',
+            urlD: 'http://localhost:8000/api/admin/institutes',
+            list: '',
+            listi: [],
+            listc: [],
+            listD: [],
+
+        }
+    },
+    methods: {
+        getOnlineAdmission() {
+            axios.get(this.url)
+                .then((result) => {
+                    this.list = result.data.data
+
+                    // console.log(result.data.data)
+
+                });
+        },
+//--------------------------Institute Type Start--------------------------------------------------------------------
+        fetchInstituteTypes() {
+            axios.get(this.urlI)
+                .then((result) => {
+                    this.listi = result.data.data
+                });
+        },
+        getInstituteTypeName(typeId) {
+            
+            const instituteType = this.listi.find(type => type.id === typeId);
+            return instituteType ? instituteType.name : '';
+
+        },
+//-----------------------------Institute Type End----------------------------------------------------------------------------------
+        fetchInstitutename() {
+            axios.get(this.urlD)
+                .then((result) => {
+                    this.listD = result.data.data
+                    console.log(result.data.data)
+                });
+        },
+        getInstitutename(typeId) {  
+            const instituteType = this.listD.find(type => type.id === typeId);
+            return instituteType ? instituteType.name : '';
+        },
+//-----------------------------Institute Name End-------------------------------------------------------------------
+        fetchClassname() {
+            axios.get(this.urlC)
+                .then((result) => {
+                    this.listc = result.data.data
+                    console.log(result.data.data)
+                });
+        },
+        getClassname(typeId) {
+            
+            const instituteType = this.listc.find(type => type.id === typeId);
+            return instituteType ? instituteType.name : '';
+        },
+//-----------------------------Class name End-------------------------------------------------------------------
+        update(id) {
+            this.$router.push({ path: '/admin/paymentedit/' + id });
+        },
+        async deleteOnlineAdmission(id) {
+            try {
+                await axios.delete(`${this.url}/${id}`);
+                this.getOnlineAdmission(); // Call getIncomeList after successful deletion
+            } catch (error) {
+                console.error("Error deleting User:", error);
+                // Handle error as needed (show user message, etc.)
+            }
+        }
+
+    },
+    mounted() {
+        this.getOnlineAdmission()
+        this.fetchInstituteTypes()
+        this.fetchClassname()
+        this.fetchInstitutename()
+    },
+}
+</script>

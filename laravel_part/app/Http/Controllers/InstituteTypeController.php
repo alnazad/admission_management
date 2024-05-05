@@ -22,7 +22,7 @@ class InstituteTypeController extends Controller
     public function create(Request $request)
     {
         $id= $request->id;
-        $data=institute_type::where('organizations_id',$id)->get();
+        $data=institute_type::where('organization_id',$id)->get();
 
         
         return $this->sendResponse($data, 'Wish list fetched successfully!');

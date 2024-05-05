@@ -16,11 +16,11 @@ return new class extends Migration
             $table->foreignId('organization_id');
             $table->integer('institute_type_id');
             $table->integer('institute_id');
-            $table->string('applicant_id');
+            $table->string('applicant_name');
             $table->string('mother_name');
             $table->string('father_name');
-            $table->integer('class_name');
-            $table->integer('birth_certificate_no');
+            $table->integer('class_name_id');
+            $table->string('birth_certificate_no');
             $table->string('mobile');
             $table->string('address');
             $table->timestamps();

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('institute_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('organizations_id');
+            $table->foreignId('organization_id');
             $table->timestamps();
         });
     }
