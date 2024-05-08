@@ -258,6 +258,12 @@ import { RouterLink } from 'vue-router';
                     <span class="menu-title">Student Registration</span>
                 </router-link>
             </li>
+            <li class="nav-item">
+                <router-link class="nav-link" data-toggle="collapse" :to="{ name:'home'}" aria-expanded="false"
+                    aria-controls="form-elements">
+                    <span  class="menu-title btn btn-danger">Log Out</span>
+                </router-link>
+            </li>
         </ul>
     </nav>
 </template>

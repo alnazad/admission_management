@@ -58,7 +58,7 @@ export default {
                      password:this.password
             })
                 .then((response) => {
-                    this.$router.push('/admin');
+                    this.$router.push('/AdmissionManagement');
                 }, (error) => {
                     console.log(error);
                 });

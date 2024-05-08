@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <label style="text-align: right;" class="col-5">Institute Name<span style="color: red;">*</span></label>
-                <select style="text-align: left;" class=" col-7" v-model="institute_id" @change="getClass()"
+                <select style="text-align: left;" class=" col-7" v-model="institute_id" @change="getAssesment()"
                     :disabled="institute_types_id === ''">
                     <option value="">Select one</option>
                     <option v-for="(data, k) in listI" :value="data.id">{{ data.name }}</option>
@@ -67,7 +67,7 @@
                 
             </div>
             <div class="text-right" style="margin: 20px 0px 20px;">
-                <RouterLink :to="{ name: 'ApplicantAssesment' }" class="btn btn-danger" href="">Back</RouterLink><input
+                <RouterLink :to="{ name: 'DisabilityAssesment' }" class="btn btn-danger" href="">Back</RouterLink><input
                     style="margin-left: 10px;" class="btn btn-primary" type="submit" value="Save">
             </div>
         </div>
@@ -122,9 +122,9 @@ export default {
                     console.log(result.data.data)
                 });
         },
-        getClass() {
+        getAssesment() {
             console.log(this.organization_id)
-            axios.get(`http://localhost:8000/api/admin/class_names/create/?id=${this.institute_id}`)
+            axios.get(`http://localhost:8000/api/admin/assesment_tools/create/?id=${this.institute_id}`)
                 .then((result) => {
                     this.listC = result.data.data
                     console.log(result.data.data)
