@@ -12,7 +12,7 @@ class institute_type extends Model
     public function organization() {
         return $this->belongsTo(Organization::class);
     }
-    public function institution(){
-        return $this->hasMany(Institute::class);
+    public function institute(){
+        return $this->hasMany(institute::class);
     }
 }

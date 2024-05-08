@@ -9,7 +9,13 @@ class online_admission extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    public function student() {
+        return $this->belongsTo(student::class);
+    }
+    public function institute() {
+        return $this->belongsTo(institute::class);
+    }
     public function organization() {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(organization::class);
     }
 }

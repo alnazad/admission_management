@@ -13,7 +13,7 @@ class ClassNameController extends Controller
      */
     public function index()
     {
-        $class_name=class_name::orderBy('id','desc')->get();
+        $class_name=class_name::with('institute')->get();
         return $this->sendResponse($class_name,'class_name list fetched successfully!');
     }
 

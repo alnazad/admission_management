@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('assesment_tools', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('institute_id');
+            $table->string('name')->nullable();
+            $table->integer('institute_id')->nullable();
             $table->timestamps();
         });
     }

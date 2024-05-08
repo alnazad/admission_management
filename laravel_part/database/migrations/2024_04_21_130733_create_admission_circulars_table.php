@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('admission_circulars', function (Blueprint $table) {
             $table->id();
-            $table->string('circular_name');
-            $table->foreignId('organization_id');
-            $table->integer('institute_types_id');
-            $table->integer('institute_id');
-            $table->string('upload_circular');
-            $table->longText('circular_discription');
-            $table->date('circular_date');
+            $table->string('circular_name')->nullable();
+            $table->foreignId('organization_id')->nullable();
+            $table->integer('institute_types_id')->nullable();
+            $table->integer('institute_id')->nullable();
+            $table->string('upload_circular')->nullable();
+            $table->longText('circular_discription')->nullable();
+            $table->date('circular_date')->nullable();
             $table->timestamps();
         });
     }

@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $student = student::with('class_name')->get();
+        return $this->sendResponse($student, 'Student list fetched successfully!');
     }
 
     /**

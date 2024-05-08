@@ -13,8 +13,23 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('class_names_id');
-            $table->foreignId('siblings_id');
+            $table->string('name')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('disability_discription')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('mother_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('assesment_tool_id')->nullable();
+            $table->string('contract_no')->nullable();
+            $table->string('address')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->date('birth_certificate_no')->nullable();
+            $table->foreignId('class_name_id')->nullable();
+            $table->foreignId('siblings_id')->nullable();
             $table->timestamps(); 
         });
     }

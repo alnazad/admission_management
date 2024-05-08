@@ -1,4 +1,4 @@
-<?php
+->nullable()<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('years', function (Blueprint $table) {
             $table->id();
-            $table->integer('year');
+            $table->integer('year')->nullable();
             $table->timestamps();
         });
     }

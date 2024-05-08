@@ -39,6 +39,10 @@
                         <label style="text-align: right;" class="col-5">Mobile</label>
                         <input type="text" style="text-align: left; " class=" col-7 " v-model="mobile">
                     </div>
+                    <div>
+                        <label style="text-align: right;" class="col-5">Birth date</label>
+                        <input type="date" style="text-align: left; " class=" col-7 " v-model="birth_date">
+                    </div>
                 </div>
                 <div class="col-6" style="margin-top:10px">
                     <div>
@@ -65,6 +69,15 @@
                     <div>
                         <label style="text-align: right;" class="col-5">Birth Certificate No</label>
                         <input type="text" style="text-align: left;" class=" col-7 " v-model="birth_certificate_no">
+                    </div>
+                    <div>
+                        <label style="text-align: right;" class="col-5">Gender</label>
+                        <select v-model="gender">
+                            <option value="">Select one</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
                     <div>
                         <label style="text-align: right;" class="col-5">Address</label>
@@ -100,6 +113,8 @@ export default {
             institute_id: '',
             applicant_name: '',
             father_name: "",
+            birth_date: "",
+            gender: "",
             mother_name: "",
             class_name_id: "",
             birth_certificate_no: "",
@@ -153,6 +168,8 @@ export default {
                 birth_certificate_no: this.birth_certificate_no,
                 mobile: this.mobile,
                 address: this.address,
+                birth_date: this.birth_date,
+                gender: this.gender,
             })
                 .then((response) => {
                     this.$router.push('/admin/OnlineAdmission');

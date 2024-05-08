@@ -9,11 +9,11 @@ class student extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
-    public function classname(){
-        return $this->belongsTo(Class_name::class);
+    public function class_name(){
+        return $this->belongsTo(class_name::class);
     }
     public function sibling(){
-        return $this->hasMany(Sibling::class);
+        return $this->belongsTo(Sibling::class);
     }
     public function gardian(){
         return $this->hasone(Gardian::class);

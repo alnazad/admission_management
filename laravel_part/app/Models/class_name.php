@@ -10,9 +10,9 @@ class class_name extends Model
     use HasFactory;
     protected $guarded=['id'];
     public function institute(){
-        return $this->belongsTo(Institute::class);
+        return $this->belongsTo(institute::class);
     }
     public function student(){
-        return $this->hasMany(Student::class);
+        return $this->hasMany(student::class);
     }
 }

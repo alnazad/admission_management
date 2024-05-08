@@ -29,12 +29,12 @@
                 <tr style="border: 1px solid blue;" v-for="(data, k) in list" :key="k">
                     <td>{{++k }}</td>
                     <td>{{ data.organization.name }}</td>
-                    <td>{{ getInstituteTypeName(data.institute_type_id) }}</td>
-                    <td>{{ getInstitutename(data.institute_id) }}</td>
-                    <td>{{ getClassname(data.class_name_id) }}</td>
-                    <td>{{ data.applicant_name }}</td>
-                    <td>{{ data.mobile }}</td>
-                    <td>{{ data.address }}</td>
+                    <td>{{ data.institute.institute_type.name }}</td>
+                    <td>{{ data.institute.name }}</td>
+                    <td>{{ data.student.class_name.name }}</td>
+                    <td>{{ data.student.name }}</td>
+                    <td>{{ data.student.mobile }}</td>
+                    <td>{{ data.student.address }}</td>
                     <td>
                         <button style="background: red;" @click="update(data.id)">
                             <i class="fa-solid fa-pen-to-square" /></button>
@@ -68,7 +68,7 @@ export default {
                 .then((result) => {
                     this.list = result.data.data
 
-                    // console.log(result.data.data)
+                    console.log(result.data.data)
 
                 });
         },
@@ -90,7 +90,7 @@ export default {
             axios.get(this.urlD)
                 .then((result) => {
                     this.listD = result.data.data
-                    console.log(result.data.data)
+                    // console.log(result.data.data)
                 });
         },
         getInstitutename(typeId) {  
@@ -102,7 +102,7 @@ export default {
             axios.get(this.urlC)
                 .then((result) => {
                     this.listc = result.data.data
-                    console.log(result.data.data)
+                    // console.log(result.data.data)
                 });
         },
         getClassname(typeId) {

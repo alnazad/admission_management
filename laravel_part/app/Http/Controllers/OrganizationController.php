@@ -14,7 +14,7 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        $organization=Organization::orderBy('id','desc')->get();
+        $organization=organization::orderBy('id','desc')->get();
         return $this->sendResponse($organization,'Role list fetched successfully!');
     }
 
