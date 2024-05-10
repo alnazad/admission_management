@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2024 at 08:06 PM
+-- Generation Time: May 10, 2024 at 07:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -379,16 +379,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `online_admissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `organization_id` bigint(20) UNSIGNED NOT NULL,
-  `institute_type_id` int(11) NOT NULL,
+  `organization_id` int(11) NOT NULL,
   `institute_id` int(11) NOT NULL,
-  `applicant_name` varchar(255) NOT NULL,
-  `mother_name` varchar(255) NOT NULL,
-  `father_name` varchar(255) NOT NULL,
-  `class_name_id` int(11) NOT NULL,
-  `birth_certificate_no` varchar(50) NOT NULL,
-  `mobile` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
+  `student_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -397,10 +390,9 @@ CREATE TABLE `online_admissions` (
 -- Dumping data for table `online_admissions`
 --
 
-INSERT INTO `online_admissions` (`id`, `organization_id`, `institute_type_id`, `institute_id`, `applicant_name`, `mother_name`, `father_name`, `class_name_id`, `birth_certificate_no`, `mobile`, `address`, `created_at`, `updated_at`) VALUES
-(1, 2, 3, 5, 'nazad', 'amina', 'farid', 9, '15', '0198', 'dhaka', '2024-05-05 03:30:24', '2024-05-05 03:30:24'),
-(2, 1, 2, 4, 'helal', 'nil', 'lal', 8, '25985', '154552', 'dhanmondi', '2024-05-05 03:47:10', '2024-05-05 03:47:10'),
-(5, 2, 3, 5, 'fds', 'sdfds', 'dsfdsf', 9, 'dsfsd', 'dfds', 'dsfdsf', '2024-05-05 11:51:05', '2024-05-05 11:51:05');
+INSERT INTO `online_admissions` (`id`, `organization_id`, `institute_id`, `student_id`, `created_at`, `updated_at`) VALUES
+(6, 2, 5, 1, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
+(7, 1, 3, 2, '2024-05-08 12:22:12', '2024-05-08 12:22:12');
 
 -- --------------------------------------------------------
 
@@ -493,8 +485,10 @@ CREATE TABLE `sessions` (
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
 ('1FLjqSwCmSX6T5lm3WwkA8Bv0pBCWzhOy1adVTkt', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiSFdYNDMwY2tTSDV1NWlTemFtdTdSU3VTdVQwSEdYNmFFYnQ4ejlZTyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1714708152),
 ('awx8wLyZeQ0TwLLtFdGMYSvE3tXGUkq2tIwnNPJe', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSWZLS25DYVBreWJwemhqbjY1d242TkJyNzNYaEZwUU1hU2ZFQW51RCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1714671683),
+('bQ2SyVERcKmsanVIDe0BiO1aTpoNd5ESVqZdatHd', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOG9QeDcxVWlEcEI3R0pmNFNBbDRXbE5xWnVTcjNPNGpiZ2JXbU50RCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715345804),
 ('hAF7eRKMlaBpCzwfm9adNxMH2oLS2jS2bRfjMMCy', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZ1E1aDVYV1JzWXJ2a1hiM0JLYUE1QkJxcjRDRlJFdUw3R0w0NVBoayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1714899227),
-('ndSLfyy9iNZ8qeXdaarKEOfEcuEBdoYrWHG4izqV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiUVdidmNIZDIyaFh2UnNEQkRlZFdwSjhndlJsVXNwWThadFd6OEdJSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1713886843);
+('ndSLfyy9iNZ8qeXdaarKEOfEcuEBdoYrWHG4izqV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiUVdidmNIZDIyaFh2UnNEQkRlZFdwSjhndlJsVXNwWThadFd6OEdJSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1713886843),
+('uGzl6RYMs1fI8HhaljtQ4mQrlCjumQsCN7s5blWq', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaEl5T2dha2RJa2pkamVUQXRBSjd5YkQ5eDdSREhXUkdJQzJyY01tRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715178095);
 
 -- --------------------------------------------------------
 
@@ -520,9 +514,34 @@ CREATE TABLE `siblings` (
 
 CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `gender` varchar(50) DEFAULT NULL,
+  `blood_group` varchar(20) DEFAULT NULL,
+  `nationality` varchar(30) DEFAULT NULL,
+  `disability_discription` text DEFAULT NULL,
+  `father_name` varchar(50) DEFAULT NULL,
+  `mother_name` varchar(50) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `mobile` varchar(20) NOT NULL,
+  `religion` varchar(30) DEFAULT NULL,
+  `assesment_tool_id` int(11) DEFAULT NULL,
+  `contract_no` varchar(30) DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
+  `birth_certificate_no` varchar(30) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `class_name_id` int(11) DEFAULT NULL,
+  `siblings_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `gender`, `blood_group`, `nationality`, `disability_discription`, `father_name`, `mother_name`, `email`, `mobile`, `religion`, `assesment_tool_id`, `contract_no`, `birth_date`, `birth_certificate_no`, `address`, `class_name_id`, `siblings_id`, `created_at`, `updated_at`) VALUES
+(1, 'Helal', 'male', NULL, NULL, NULL, 'Lal', 'Nill', NULL, '10698547', NULL, NULL, NULL, '2024-05-08', '015698', 'dhaka', 9, NULL, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
+(2, 'fazle', 'male', NULL, NULL, NULL, 'le', 'faz', NULL, '12364789', NULL, NULL, NULL, '2024-05-10', '12654798', 'mugda', 6, NULL, '2024-05-08 12:22:12', '2024-05-08 12:22:12');
 
 -- --------------------------------------------------------
 
@@ -761,7 +780,7 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT for table `assesment_tools`
 --
 ALTER TABLE `assesment_tools`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `class_names`
@@ -821,7 +840,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `online_admissions`
 --
 ALTER TABLE `online_admissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `organizations`
@@ -845,7 +864,7 @@ ALTER TABLE `siblings`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

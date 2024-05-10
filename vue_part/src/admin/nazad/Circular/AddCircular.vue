@@ -19,7 +19,7 @@
                     <option v-for="(data, k) in listI" :value="data.id">{{ data.name }}</option>
                 </select>
                 <label style="text-align: right; " class="col-5">Upload Circular<span style="color: red;">*</span></label>
-                <input   type="file" style="text-align: left;border: 1px solid green; " class=" col-7 ">
+                <input   type="file" style="text-align: left;border: 1px solid green; " class=" col-7 " @change="handleFileUpload">
 
                 <label style="text-align: right;" class="col-5">Published Date<span style="color: red;">*</span></label>
                 <input  type="date" style="text-align: left; " class=" col-7 " v-model="circular_date">
@@ -38,7 +38,7 @@
                 <input  type="text" style="text-align: left;" class=" col-7 " v-model="circular_discription">
             </div>
             <div class="text-right" style="margin: 20px 0px 20px;">
-                <RouterLink :to="{name:'circulation'}" class="btn btn-danger" href="">Back</RouterLink><input style="margin-left: 10px;" class="btn btn-primary" type="submit" value="Save">
+                <RouterLink :to="{name:'circulation'}" class="btn btn-danger" href="">Back</RouterLink><input style="margin-left: 10px;" class="btn btn-primary" type="submit" value="Save" @click="save">
             </div>
         </div>
     </div>
@@ -49,6 +49,7 @@ export default {
     data() {
         return {
             urlO: 'http://localhost:8000/api/admin/organizations',
+            url:'http://localhost:8000/api/admin/admission_circulars',
             listO:[],
             listT:[],
             listI:[],
@@ -89,7 +90,13 @@ export default {
                     console.log(result.data.data)
                 });
         },
+        handleFileUpload(event) {
+      this.image = event.target.files[0];
+        },
         save() {
+            let formData = new FormData();
+      formData.append('image', this.image);
+
             axios.post(this.url, {
                      name:this.name,
             })
