@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admission_circular;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AdmissionCircularController extends Controller
@@ -41,28 +42,27 @@ class AdmissionCircularController extends Controller
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors(), 422);
         }
-        if ($request->hasFile('upload_circular')) {
-            $image = $request->file('upload_circular');
-            $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '.' . $file->getClientOriginalName();
+            $path = 'public/files' . $fileName;
+            Storage::disk('local')->put($path, file_get_contents($file));
 
-            return response()->json(['image_url' => '/images/'.$imageName], 200);
-        };
+            $input['circular_name'] = $request->circular_name;
+            $input['upload_circular'] = $request->upload_circular;
+            $input['circular_discription'] = $request->circular_discription;
+            $input['circular_date'] = $request->circular_date;
+            $input['organization_id'] = $request->organization_id;
+            $input['institute_id'] = $request->institute_id;
 
-        $input['circular_name'] = $request->circular_name;
-        $input['upload_circular'] = $request->upload_circular;
-        $input['circular_discription'] = $request->circular_discription;
-        $input['circular_date'] = $request->circular_date;
-        $input['organization_id'] = $request->organization_id;
-        $input['institute_id'] = $request->institute_id;
-
-        $path['path'] = $request->path;
-        $file = $request->path;
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        $request->path->move(public_path('photos/products'), $filename);
-        $products = admission_circular::create($input);
-        $products->photo()->create(['path' => $filename]);
-        return $this->sendResponse($products, 'Product created successfully!');
+            return response()->json('uploaded Successfull');
+        }
+        return response()->json('File not found');
+    }
+    public function remove(Request $request){
+        $file='public/files/'.$request->name;
+        Storage::delete($file);
+        return response()->json('delete Successfully');
     }
 
     /**

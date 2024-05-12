@@ -94,11 +94,16 @@ export default {
       this.image = event.target.files[0];
         },
         save() {
-            let formData = new FormData();
+            let myFile = new File((result));
       formData.append('image', this.image);
 
             axios.post(this.url, {
-                     name:this.name,
+                     circular_name:this.circular_name,
+            upload_circular:this.formData,
+            circular_discription:this.circular_discription,
+            circular_date:this.circular_date,
+            organization_id:this.organization_id,
+            institute_id:this.institute_id,
             })
                 .then((response) => {
                     this.$router.push('/admin/roles');
