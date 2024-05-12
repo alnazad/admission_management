@@ -6,7 +6,7 @@
     </div>
     <div class="container">
         <form v-on:submit.prevent="save">
-        <div class="row" style="border: 1px solid green;color: blue;">
+            <div class="row" style="border: 1px solid green;color: blue;">
                 <div class="col-6" style="margin-top:10px">
                     <div>
                         <label style="text-align: right;" class="col-5">Organization name<span
@@ -91,8 +91,8 @@
                     <RouterLink :to="{ name: 'OnlineAdmission' }" class="btn btn-danger" href="">Back</RouterLink><input
                         style="margin-left: 10px;" class="btn btn-primary" type="submit" value="Save">
                 </div>
-        </div>
-    </form>
+            </div>
+        </form>
     </div>
 </template>
 <script>

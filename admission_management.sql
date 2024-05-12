@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 07:19 PM
+-- Generation Time: May 12, 2024 at 09:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -67,17 +67,22 @@ CREATE TABLE `admission_fees` (
 
 CREATE TABLE `applicant_assesments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `organization_id` bigint(20) UNSIGNED NOT NULL,
-  `institute_type_id` int(11) NOT NULL,
-  `institute_id` int(11) NOT NULL,
+  `institute_types_id` int(11) NOT NULL,
   `assesment_tools_id` bigint(20) UNSIGNED NOT NULL,
   `student_id` int(11) NOT NULL,
-  `student_name` varchar(255) NOT NULL,
   `assesment_markes` decimal(10,2) NOT NULL,
   `remarks` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `applicant_assesments`
+--
+
+INSERT INTO `applicant_assesments` (`id`, `institute_types_id`, `assesment_tools_id`, `student_id`, `assesment_markes`, `remarks`, `created_at`, `updated_at`) VALUES
+(1, 3, 9, 1, 50.00, 'gggg', '2024-05-12 12:32:34', '2024-05-12 12:32:34'),
+(2, 3, 9, 2, 60.00, 'dfdfd', '2024-05-12 12:38:33', '2024-05-12 12:38:33');
 
 -- --------------------------------------------------------
 
@@ -392,7 +397,8 @@ CREATE TABLE `online_admissions` (
 
 INSERT INTO `online_admissions` (`id`, `organization_id`, `institute_id`, `student_id`, `created_at`, `updated_at`) VALUES
 (6, 2, 5, 1, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
-(7, 1, 3, 2, '2024-05-08 12:22:12', '2024-05-08 12:22:12');
+(7, 1, 3, 2, '2024-05-08 12:22:12', '2024-05-08 12:22:12'),
+(9, 2, 5, 4, '2024-05-12 07:51:58', '2024-05-12 07:51:58');
 
 -- --------------------------------------------------------
 
@@ -488,7 +494,9 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 ('bQ2SyVERcKmsanVIDe0BiO1aTpoNd5ESVqZdatHd', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOG9QeDcxVWlEcEI3R0pmNFNBbDRXbE5xWnVTcjNPNGpiZ2JXbU50RCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715345804),
 ('hAF7eRKMlaBpCzwfm9adNxMH2oLS2jS2bRfjMMCy', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZ1E1aDVYV1JzWXJ2a1hiM0JLYUE1QkJxcjRDRlJFdUw3R0w0NVBoayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1714899227),
 ('ndSLfyy9iNZ8qeXdaarKEOfEcuEBdoYrWHG4izqV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiUVdidmNIZDIyaFh2UnNEQkRlZFdwSjhndlJsVXNwWThadFd6OEdJSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1713886843),
-('uGzl6RYMs1fI8HhaljtQ4mQrlCjumQsCN7s5blWq', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaEl5T2dha2RJa2pkamVUQXRBSjd5YkQ5eDdSREhXUkdJQzJyY01tRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715178095);
+('q0Nh6Ym2zCituMVNRPkUZTClL5hI6gRDPNioAM6U', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicWhsazdrUEN5MTZKaWZPcEE2RlR2cUNaN1R3bGVZVE5lUGhyNnpuNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715521449),
+('uGzl6RYMs1fI8HhaljtQ4mQrlCjumQsCN7s5blWq', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaEl5T2dha2RJa2pkamVUQXRBSjd5YkQ5eDdSREhXUkdJQzJyY01tRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715178095),
+('Unk7EKSMXvCLUCIieuvzxb8PnKUKj0q93ma95p3m', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaWkzZXdEZXNVaUtqRGFrNXNmOUpaY21jdUhtYmo2czh2bmJoNHRrViI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715400954);
 
 -- --------------------------------------------------------
 
@@ -531,6 +539,7 @@ CREATE TABLE `students` (
   `address` varchar(100) DEFAULT NULL,
   `class_name_id` int(11) DEFAULT NULL,
   `siblings_id` int(11) DEFAULT NULL,
+  `marks` decimal(10,0) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -539,9 +548,10 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `gender`, `blood_group`, `nationality`, `disability_discription`, `father_name`, `mother_name`, `email`, `mobile`, `religion`, `assesment_tool_id`, `contract_no`, `birth_date`, `birth_certificate_no`, `address`, `class_name_id`, `siblings_id`, `created_at`, `updated_at`) VALUES
-(1, 'Helal', 'male', NULL, NULL, NULL, 'Lal', 'Nill', NULL, '10698547', NULL, NULL, NULL, '2024-05-08', '015698', 'dhaka', 9, NULL, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
-(2, 'fazle', 'male', NULL, NULL, NULL, 'le', 'faz', NULL, '12364789', NULL, NULL, NULL, '2024-05-10', '12654798', 'mugda', 6, NULL, '2024-05-08 12:22:12', '2024-05-08 12:22:12');
+INSERT INTO `students` (`id`, `name`, `gender`, `blood_group`, `nationality`, `disability_discription`, `father_name`, `mother_name`, `email`, `mobile`, `religion`, `assesment_tool_id`, `contract_no`, `birth_date`, `birth_certificate_no`, `address`, `class_name_id`, `siblings_id`, `marks`, `created_at`, `updated_at`) VALUES
+(1, 'Helal', 'male', NULL, NULL, NULL, 'Lal', 'Nill', NULL, '10698547', NULL, NULL, NULL, '2024-05-08', '015698', 'dhaka', 9, NULL, NULL, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
+(2, 'fazle', 'male', NULL, NULL, NULL, 'le', 'faz', NULL, '12364789', NULL, NULL, NULL, '2024-05-10', '12654798', 'mugda', 6, NULL, NULL, '2024-05-08 12:22:12', '2024-05-08 12:22:12'),
+(4, 'jodu', 'Male', NULL, NULL, NULL, 'modu', 'kodu', NULL, '01254', NULL, NULL, NULL, '2024-05-12', '0158595', 'dhaka', 9, NULL, NULL, '2024-05-12 07:51:58', '2024-05-12 07:51:58');
 
 -- --------------------------------------------------------
 
@@ -768,7 +778,7 @@ ALTER TABLE `admission_fees`
 -- AUTO_INCREMENT for table `applicant_assesments`
 --
 ALTER TABLE `applicant_assesments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `areas`
@@ -840,7 +850,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `online_admissions`
 --
 ALTER TABLE `online_admissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `organizations`
@@ -864,7 +874,7 @@ ALTER TABLE `siblings`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

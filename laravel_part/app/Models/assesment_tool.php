@@ -12,4 +12,7 @@ class assesment_tool extends Model
     public function institute() {
         return $this->belongsTo(institute::class);
     }
+    public function applicant_assesment(){
+        return $this->hasMany(applicant_assesment::class);
+    }
 }

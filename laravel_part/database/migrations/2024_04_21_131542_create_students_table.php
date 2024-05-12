@@ -30,6 +30,7 @@ return new class extends Migration
             $table->date('birth_certificate_no')->nullable();
             $table->foreignId('class_name_id')->nullable();
             $table->foreignId('siblings_id')->nullable();
+            $table->decimal('marks',10,2)->nullable();
             $table->timestamps(); 
         });
     }

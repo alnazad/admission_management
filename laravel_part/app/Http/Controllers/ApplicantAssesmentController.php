@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\applicant_assesment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ApplicantAssesmentController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $applicant_assesment=applicant_assesment::with('student','student.class_name','assesment_tools','assesment_tools.institute','institute_types','institute_types.organization')->get();
+        return $this->sendResponse($applicant_assesment, 'applicant_assesment list fetched successfully!');
     }
 
     /**
@@ -28,7 +31,19 @@ class ApplicantAssesmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'assesment_markes' => 'required',
+            'remarks' => 'required',
+            'student_id' => 'required',
+            'institute_types_id' => 'required',
+            'assesment_tools_id' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors(), 422);
+        }
+        $input = $request->all();
+        $applicant_assesment =applicant_assesment::create($input);
+        return $this->sendResponse($applicant_assesment, 'created successfully!');
     }
 
     /**

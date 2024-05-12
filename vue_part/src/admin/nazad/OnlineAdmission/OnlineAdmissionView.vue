@@ -21,6 +21,7 @@
                     <th>I.Type</th>
                     <th>I.Name</th>
                     <th>Class</th>
+                    <th>A.ID</th>
                     <th>A.Name</th>
                     <th>Mobile</th>
                     <th>Address</th>
@@ -32,6 +33,7 @@
                     <td>{{ data.institute.institute_type.name }}</td>
                     <td>{{ data.institute.name }}</td>
                     <td>{{ data.student.class_name.name }}</td>
+                    <td>{{ data.student.id }}</td>
                     <td>{{ data.student.name }}</td>
                     <td>{{ data.student.mobile }}</td>
                     <td>{{ data.student.address }}</td>

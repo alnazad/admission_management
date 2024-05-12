@@ -15,4 +15,7 @@ class institute_type extends Model
     public function institute(){
         return $this->hasMany(institute::class);
     }
+    public function applicant_assesment(){
+        return $this->hasMany(applicant_assesment::class);
+    }
 }
