@@ -15,7 +15,8 @@ class AdmissionCircularController extends Controller
      */
     public function index()
     {
-        //
+        $admission_circular =admission_circular::with('organization','institute','institute.institute_type')->orderBy('id','desc')->get();
+        return $this->sendResponse($admission_circular, 'admission_circular list fetched successfully!');
     }
 
     /**
@@ -33,37 +34,20 @@ class AdmissionCircularController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'circular_name' => 'required',
-            'upload_circular' => 'required',
             'circular_discription' => 'required',
             'circular_date' => 'required',
+            'last_date' => 'required',
             'organization_id' => 'required',
             'institute_id' => 'required',
         ]);
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors(), 422);
         }
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $fileName = time() . '.' . $file->getClientOriginalName();
-            $path = 'public/files' . $fileName;
-            Storage::disk('local')->put($path, file_get_contents($file));
-
-            $input['circular_name'] = $request->circular_name;
-            $input['upload_circular'] = $request->upload_circular;
-            $input['circular_discription'] = $request->circular_discription;
-            $input['circular_date'] = $request->circular_date;
-            $input['organization_id'] = $request->organization_id;
-            $input['institute_id'] = $request->institute_id;
-
-            return response()->json('uploaded Successfull');
-        }
-        return response()->json('File not found');
+        $input = $request->all();
+        $admission_circular =admission_circular::create($input);
+        return $this->sendResponse($admission_circular, 'created successfully!');
     }
-    public function remove(Request $request){
-        $file='public/files/'.$request->name;
-        Storage::delete($file);
-        return response()->json('delete Successfully');
-    }
+    
 
     /**
      * Display the specified resource.
@@ -92,8 +76,9 @@ class AdmissionCircularController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(admission_circular $admission_circular)
+    public function destroy(string $id)
     {
-        //
+        $admission_circular =admission_circular::find($id)->delete();
+        return $this->sendResponse($admission_circular, 'deleted successfully!');
     }
 }

@@ -7,7 +7,8 @@
     <div class="container">
         <form v-on:submit.prevent="save">
             <div class="row" style="border: 1px solid green;color: blue;">
-                <div class="col-6" style="margin-top:10px">
+                <div class="col-6" style="margin-top:10px"> 
+                    
                     <div>
                         <label style="text-align: right;" class="col-5">Organization name<span
                                 style="color: red;">*</span></label>
@@ -73,7 +74,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/applicant_assesments',
+            url: 'http://localhost:8000/api/admin/admission_fees',
             urlO: 'http://localhost:8000/api/admin/organizations',
             urlI: 'http://localhost:8000/api/admin/institutes',
             urlI: 'http://localhost:8000/api/admin/students',
@@ -129,12 +130,12 @@ export default {
         getName() {
             // console.log(this.student_id)
             if (this.student_id !== '') {
-                axios.get(`http://localhost:8000/api/admin/students/create/?id=${this.student_id}`)
+                axios.get(`http://localhost:8000/api/admin/admission_fees/create/?id=${this.student_id}`)
                     .then((result) => {
 
                         if (result.data.data.length !== 0) {
                             this.listS = result.data.data[0]
-                            // console.log(result)
+                            console.log(result.data.data[0])
                         } else {
                             this.listS = 'data not found'
                         }
@@ -149,8 +150,9 @@ export default {
             axios.post(this.url, {
                 fee: this.fee,
                 student_id: this.student_id,
-                institute_types_id:this.institute_types_id,
-                assesment_tools_id:this.assesment_tools_id,
+                institute_type_id:this.institute_types_id,
+                institute_id:this.institute_id,
+                organization_id:this.organization_id,
             })
                 .then((response) => {
                     this.$router.push('/AdmissionFee');

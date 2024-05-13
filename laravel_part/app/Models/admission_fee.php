@@ -12,4 +12,13 @@ class admission_fee extends Model
     public function organization() {
         return $this->belongsTo(Organization::class);
     }
+    public function student() {
+        return $this->belongsTo(student::class);
+    }
+    public function institute() {
+        return $this->belongsTo(institute::class);
+    }
+    public function institute_type() {
+        return $this->belongsTo(institute_type::class);
+    }
 }

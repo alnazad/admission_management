@@ -9,6 +9,12 @@ class institute_type extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    public function admission_fee() {
+        return $this->hasMany(admission_fee::class);
+    }
+
+
+
     public function organization() {
         return $this->belongsTo(Organization::class);
     }

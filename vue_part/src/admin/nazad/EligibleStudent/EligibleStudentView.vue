@@ -33,16 +33,11 @@
                     <td>{{ data.assesment_markes}}</td>
                 </tr>
             </table>
-            <Bootstrap5Pagination
-      :data="laravelData"
-      @pagination-change-page="getResults"
-  />
         </div>
     </div>
 </template>
 <script>
 import axios from 'axios';
-import { Bootstrap5Pagination } from 'laravel-vue-pagination';
 export default {
     data() {
         return {

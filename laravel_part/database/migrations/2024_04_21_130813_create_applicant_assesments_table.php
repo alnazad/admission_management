@@ -13,12 +13,9 @@ return new class extends Migration
     {
         Schema::create('applicant_assesments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('organization_id')->nullable();
-            $table->integer('institute_type_id')->nullable();
-            $table->integer('institute_id')->nullable();
+            $table->foreignId('institute_type_id')->nullable();
             $table->foreignId('assesment_tools_id')->nullable();
-            $table->integer('student_id')->nullable();
-            $table->string('student_name')->nullable();
+            $table->foreignId('student_id')->nullable();
             $table->decimal('assesment_markes',10,2)->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();

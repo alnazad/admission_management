@@ -84,6 +84,11 @@ const router = createRouter({
           component: () => import('../admin/nazad/StudentReg/StudentRegView.vue')
         },
         {
+          path: '/AddStudentRegistration',
+          name: 'AddStudentRegistration',
+          component: () => import('../admin/nazad/StudentReg/AddStudentReg.vue')
+        },
+        {
           path: '/AdmissionManagement',
           name: 'AdmissionManagement',
           component: () => import('@/admin/nazad/AdmissionManagement.vue')

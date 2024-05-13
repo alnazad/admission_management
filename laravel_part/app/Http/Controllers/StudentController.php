@@ -24,8 +24,6 @@ class StudentController extends Controller
     {
         $id= $request->id;
         $data=student::where('id',$id)->get();
-
-        
         return $this->sendResponse($data, 'Wish list fetched successfully!');
     }
 

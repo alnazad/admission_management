@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('assesment_tools', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->integer('institute_id')->nullable();
+            $table->foreignId('institute_id')->nullable();
             $table->timestamps();
         });
     }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2024 at 09:08 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: May 13, 2024 at 07:51 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,14 +31,21 @@ CREATE TABLE `admission_circulars` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `circular_name` varchar(255) NOT NULL,
   `organization_id` bigint(20) UNSIGNED NOT NULL,
-  `institute_types_id` int(11) NOT NULL,
   `institute_id` int(11) NOT NULL,
-  `upload_circular` varchar(255) NOT NULL,
   `circular_discription` longtext NOT NULL,
   `circular_date` date NOT NULL,
+  `last_date` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admission_circulars`
+--
+
+INSERT INTO `admission_circulars` (`id`, `circular_name`, `organization_id`, `institute_id`, `circular_discription`, `circular_date`, `last_date`, `created_at`, `updated_at`) VALUES
+(2, 'Admission Spring', 2, 5, 'Spring fare admission', '2024-05-14', '2024-05-18', '2024-05-13 10:20:46', '2024-05-13 10:20:46'),
+(3, 'vbdfgvdfs', 2, 5, 'dsfsd', '2024-05-03', '2024-05-17', '2024-05-13 10:32:06', '2024-05-13 10:32:06');
 
 -- --------------------------------------------------------
 
@@ -52,12 +59,18 @@ CREATE TABLE `admission_fees` (
   `institute_type_id` int(11) NOT NULL,
   `institute_id` int(11) NOT NULL,
   `student_id` varchar(255) NOT NULL,
-  `student_name` varchar(255) NOT NULL,
   `fee` decimal(10,2) NOT NULL,
-  `remarks` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admission_fees`
+--
+
+INSERT INTO `admission_fees` (`id`, `organization_id`, `institute_type_id`, `institute_id`, `student_id`, `fee`, `created_at`, `updated_at`) VALUES
+(2, 2, 3, 5, '1', 500.00, '2024-05-13 08:24:09', '2024-05-13 08:24:09'),
+(3, 2, 3, 5, '6', 500.00, '2024-05-13 11:01:29', '2024-05-13 11:01:29');
 
 -- --------------------------------------------------------
 
@@ -83,7 +96,8 @@ CREATE TABLE `applicant_assesments` (
 INSERT INTO `applicant_assesments` (`id`, `institute_types_id`, `assesment_tools_id`, `student_id`, `assesment_markes`, `remarks`, `created_at`, `updated_at`) VALUES
 (1, 3, 9, 1, 50.00, 'gggg', '2024-05-12 12:32:34', '2024-05-12 12:32:34'),
 (2, 3, 9, 2, 60.00, 'dfdfd', '2024-05-12 12:38:33', '2024-05-12 12:38:33'),
-(3, 3, 9, 2, 80.00, 'blind', '2024-05-13 01:01:44', '2024-05-13 01:01:44');
+(3, 3, 9, 2, 80.00, 'blind', '2024-05-13 01:01:44', '2024-05-13 01:01:44'),
+(4, 3, 9, 6, 90.00, 'Mental', '2024-05-13 11:00:39', '2024-05-13 11:00:39');
 
 -- --------------------------------------------------------
 
@@ -134,9 +148,7 @@ INSERT INTO `assesment_tools` (`id`, `name`, `institute_id`, `created_at`, `upda
 (15, 'Intelligence Test', 7, NULL, NULL),
 (16, 'Development Sheduels Test', 2, NULL, NULL),
 (17, 'Development Sheduels Test', 4, NULL, NULL),
-(18, 'Development Sheduels Test', 6, NULL, NULL),
-(21, 'sdfdsfasd', 4, '2024-05-13 00:58:11', '2024-05-13 00:58:11'),
-(22, 'fghfhsfgd', 5, '2024-05-13 00:59:34', '2024-05-13 00:59:34');
+(23, 'fsdfsds', 3, '2024-05-13 10:25:09', '2024-05-13 10:25:09');
 
 -- --------------------------------------------------------
 
@@ -402,7 +414,7 @@ INSERT INTO `online_admissions` (`id`, `organization_id`, `institute_id`, `stude
 (6, 2, 5, 1, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
 (7, 1, 3, 2, '2024-05-08 12:22:12', '2024-05-08 12:22:12'),
 (9, 2, 5, 4, '2024-05-12 07:51:58', '2024-05-12 07:51:58'),
-(10, 1, 3, 5, '2024-05-13 00:57:29', '2024-05-13 00:57:29');
+(11, 2, 5, 6, '2024-05-13 10:59:35', '2024-05-13 10:59:35');
 
 -- --------------------------------------------------------
 
@@ -528,22 +540,19 @@ CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
-  `blood_group` varchar(20) DEFAULT NULL,
   `nationality` varchar(30) DEFAULT NULL,
-  `disability_discription` text DEFAULT NULL,
   `father_name` varchar(50) DEFAULT NULL,
   `mother_name` varchar(50) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `mobile` varchar(20) NOT NULL,
   `religion` varchar(30) DEFAULT NULL,
+  `institute_type_id` int(11) DEFAULT NULL,
   `assesment_tool_id` int(11) DEFAULT NULL,
-  `contract_no` varchar(30) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
   `birth_certificate_no` varchar(30) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `class_name_id` int(11) DEFAULT NULL,
   `siblings_id` int(11) DEFAULT NULL,
-  `marks` decimal(10,0) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -552,11 +561,12 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `gender`, `blood_group`, `nationality`, `disability_discription`, `father_name`, `mother_name`, `email`, `mobile`, `religion`, `assesment_tool_id`, `contract_no`, `birth_date`, `birth_certificate_no`, `address`, `class_name_id`, `siblings_id`, `marks`, `created_at`, `updated_at`) VALUES
-(1, 'Helal', 'male', NULL, NULL, NULL, 'Lal', 'Nill', NULL, '10698547', NULL, NULL, NULL, '2024-05-08', '015698', 'dhaka', 9, NULL, NULL, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
-(2, 'fazle', 'male', NULL, NULL, NULL, 'le', 'faz', NULL, '12364789', NULL, NULL, NULL, '2024-05-10', '12654798', 'mugda', 6, NULL, NULL, '2024-05-08 12:22:12', '2024-05-08 12:22:12'),
-(4, 'jodu', 'Male', NULL, NULL, NULL, 'modu', 'kodu', NULL, '01254', NULL, NULL, NULL, '2024-05-12', '0158595', 'dhaka', 9, NULL, NULL, '2024-05-12 07:51:58', '2024-05-12 07:51:58'),
-(5, 'Rakib', 'Male', NULL, NULL, NULL, 'Rohim', 'Amina', NULL, '01883331370', NULL, NULL, NULL, '2024-05-13', '1236547889', 'dhaka', 6, NULL, NULL, '2024-05-13 00:57:29', '2024-05-13 00:57:29');
+INSERT INTO `students` (`id`, `name`, `gender`, `nationality`, `father_name`, `mother_name`, `email`, `mobile`, `religion`, `institute_type_id`, `assesment_tool_id`, `birth_date`, `birth_certificate_no`, `address`, `class_name_id`, `siblings_id`, `created_at`, `updated_at`) VALUES
+(1, 'Helal', 'male', NULL, 'Lal', 'Nill', NULL, '10698547', NULL, NULL, NULL, '2024-05-08', '015698', 'dhaka', 9, NULL, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
+(2, 'fazle', 'male', NULL, 'le', 'faz', NULL, '12364789', NULL, NULL, NULL, '2024-05-10', '12654798', 'mugda', 6, NULL, '2024-05-08 12:22:12', '2024-05-08 12:22:12'),
+(4, 'jodu', 'Male', NULL, 'modu', 'kodu', NULL, '01254', NULL, NULL, NULL, '2024-05-12', '0158595', 'dhaka', 9, NULL, '2024-05-12 07:51:58', '2024-05-12 07:51:58'),
+(5, 'Rakib', 'Male', NULL, 'Rohim', 'Amina', NULL, '01883331370', NULL, NULL, NULL, '2024-05-13', '1236547889', 'dhaka', 6, NULL, '2024-05-13 00:57:29', '2024-05-13 00:57:29'),
+(6, 'Rohin Anam', 'Male', NULL, 'Ratan Anam', 'Liza Akter', NULL, '01236959455', NULL, NULL, NULL, '2024-05-14', '01589635545', 'Dhaka', 10, NULL, '2024-05-13 10:59:35', '2024-05-13 10:59:35');
 
 -- --------------------------------------------------------
 
@@ -771,19 +781,19 @@ ALTER TABLE `years`
 -- AUTO_INCREMENT for table `admission_circulars`
 --
 ALTER TABLE `admission_circulars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `admission_fees`
 --
 ALTER TABLE `admission_fees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `applicant_assesments`
 --
 ALTER TABLE `applicant_assesments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `areas`
@@ -795,7 +805,7 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT for table `assesment_tools`
 --
 ALTER TABLE `assesment_tools`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `class_names`
@@ -855,7 +865,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `online_admissions`
 --
 ALTER TABLE `online_admissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `organizations`
@@ -879,7 +889,7 @@ ALTER TABLE `siblings`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

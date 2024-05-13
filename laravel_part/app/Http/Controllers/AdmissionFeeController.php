@@ -3,24 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\admission_fee;
+use App\Models\student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdmissionFeeController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $admission_fee = admission_fee::with('student','student.class_name','institute')->get();
+        return $this->sendResponse($admission_fee, 'online_admission list fetched successfully!');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id= $request->id;
+        $data=student::where('id',$id)->with('class_name',)->get();
+        return $this->sendResponse($data, 'Wish list fetched successfully!');
     }
 
     /**
@@ -32,14 +38,15 @@ class AdmissionFeeController extends Controller
             'fee' => 'required',
             'student_id' => 'required',
             'institute_id' => 'required',
-            'assesment_tools_id' => 'required'
+            'institute_type_id' => 'required',
+            'organization_id' => 'required'
         ]);
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors(), 422);
         }
         $input = $request->all();
-        $applicant_assesment =applicant_assesment::create($input);
-        return $this->sendResponse($applicant_assesment, 'created successfully!');
+        $admission_fee =admission_fee::create($input);
+        return $this->sendResponse($admission_fee, 'created successfully!');
     }
 
     /**

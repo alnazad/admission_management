@@ -19,170 +19,64 @@
                     <th>I. Type</th>
                     <th>I. Name</th>
                     <th>Circular Name</th>
-                    <th>Date</th>
+                    <th>Published Date</th>
+                    <th>Last Date</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>BSAF</td>
-                    <td>Blind Child</td>
-                    <td>Helal Academy</td>
-                    <td>Admission Circulation</td>
-                    <td>30-04-2024</td>
+                <tr v-for="(data, k) in list" :key="k">
+                    <td>{{ ++k }}</td>
+                    <td>{{ data.organization.name }}</td>
+                    <td>{{ data.institute.institute_type.name }}</td>
+                    <td>{{ data.institute.name }}</td>
+                    <td>{{ data.circular_name }}</td>
+                    <td>{{ data.circular_date }}</td>
+                    <td>{{ data.last_date }}</td>
                     <td>
-                        <a class="btn btn-primary" href="">
+                        <a style="background: red;" class="btn btn-primary" href="">
                         <i class="fa-solid fa-pen-to-square"/></a>
-                        <a class="btn btn-danger" href=""><i class="fa-solid fa-trash"/></a>
+                        <a style="background: red;margin-left: 5px;" class="btn btn-danger" @click="deleteCircular(data.id)"><i class="fa-solid fa-trash"/></a>
                     </td>
                 </tr>
-                <!-- <tr v-for="(data, k) in list" :key="k">
-                <td>{{++k}}</td>
-                <td>{{ data.income_category.name }}</td>
-                <td>{{ data.date }}</td>
-                <td>{{ data.employee.people.name }}</td>
-                <td>{{ data.amount }}</td>
-                <td>{{ data.details }}</td>
-                <td>{{ data.income_source.name}}</td>
-                <td>
-                    <div><button class="btn btn-success" @click="update(data.id)">Edit</button>
-                        <button class="btn btn-danger" @click="deleteIncome(data.id)">Delete</button>
-                    </div>
-                </td>
-            </tr> -->
             </table>
         </div>
     </div>
 </template>
-<!-- <script>
+<script>
 import axios from 'axios';
-import { RouterLink } from 'vue-router';
 export default {
     data() {
         return {
-            test: "<h1>Income table</h1>",
-            url: 'http://127.0.0.1:8000/api/nazad/incomes',
-            list: [],
-            category_id: "",
-            date: "",
-            employee_id: "",
-            amount: "",
-            details: "",
-            income_source_id: "",
-            id: '',
-            msg: ''
+            url: 'http://localhost:8000/api/admin/admission_circulars',
+            list: '',
 
         }
     },
     methods: {
-        // Show Income------------------
-        getIncomeList() {
+        getCircular() {
             axios.get(this.url)
                 .then((result) => {
-                    this.list = result.data.data.income
-                    // console.log(result.data.data)
+                    this.list = result.data.data
 
-                    // console.log(result.data.data.employee)
+                    console.log(result.data.data)
 
                 });
         },
-        //add income----------------------
-        save() {
-            axios.post(this.url, {
-                category_id: this.category_id,
-                date: this.date,
-                employee_id: this.employee_id,
-                amount: this.amount,
-                details: this.details,
-                income_source_id: this.income_source_id
-
-
-            })
-                .then((response) => {
-                    console.log(response);
-                    this.getIncomeList()
-                    this.category_id = "",
-                        this.date = "",
-                        this.employee_id = "",
-                        this.amount = "",
-                        this.details = "",
-                        this.income_source_id = ""
-                }, (error) => {
-                    console.log(error);
-                });
-
-        },
-        // Edit Request ----------------------------
         update(id) {
-            // const response = await fetch(`${this.url}/${id}/edit`, {
-            //     method: "GET",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     }
-            // });
-            // const result = await response.json();
-            // data = result.data
-            // this.category_id = data.category_id
-            // this.date = data.date
-            // this.employee_id = data.employee_id
-            // this.amount = data.amount
-            // this.details = data.details
-            // this.income_source_id = data.income_source_id
-            // this.id = id
-            this.$router.push({path: '/income/edit/' +id});
-
-            // axios.get(`${this.url}/${id}/edit`)
-            //     .then((response) => {
-            //         let data = response.data.data
-            //         this.$router.push({path: '/income/edit/' + data.id});
-
-            //     }, (error) => {
-            //         console.log(error);
-            //     });
-            // console.log(result.data)
+            this.$router.push({ path: '/admin/paymentedit/' + id });
         },
-        //Update request ----------------------------
-        async updateIncome() {
-            axios.put(`${this.url}/${this.id}`, {
-                category_id: this.category_id,
-                date: this.date,
-                employee_id: this.employee_id,
-                amount: this.amount,
-                details: this.details,
-                income_source_id: this.income_source_id
-
-
-            })
-                .then((response) => {
-                    // console.log(response);
-                    this.getIncomeList()
-                    this.category_id = "",
-                        this.date = "",
-                        this.employee_id = "",
-                        this.amount = "",
-                        this.details = "",
-                        this.income_source_id = ""
-                }, (error) => {
-                    console.log(error);
-                });
-        },
-        async deleteIncome(id) {
+        async deleteCircular(id) {
             try {
                 await axios.delete(`${this.url}/${id}`);
-                this.getIncomeList(); // Call getIncomeList after successful deletion
+                this.getCircular(); // Call getIncomeList after successful deletion
             } catch (error) {
-                console.error("Error deleting income:", error);
+                console.error("Error deleting User:", error);
                 // Handle error as needed (show user message, etc.)
             }
         }
+
     },
     mounted() {
-        this.getIncomeList()
+        this.getCircular()
     },
-    watch: {
-
-    },
-    computed: {
-
-    }
 }
-</script> -->
+</script>

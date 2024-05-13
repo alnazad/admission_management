@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('online_admissions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('organization_id')->nullable();
-            $table->integer('student_id')->nullable();
-            $table->integer('institute_id')->nullable();
+            $table->foreignId('student_id')->nullable();
+            $table->foreignId('institute_id')->nullable();
             $table->timestamps();
         });
     }

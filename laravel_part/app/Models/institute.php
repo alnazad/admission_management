@@ -9,6 +9,14 @@ class institute extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
+    public function admission_circular(){
+        return $this->hasMany(admission_circular::class);
+    }
+    public function admission_fee(){
+        return $this->hasMany(admission_fee::class);
+    }
+
+
     public function institute_type(){
         return $this->belongsTo(institute_type::class);
     }

@@ -194,6 +194,13 @@ import { RouterLink } from 'vue-router';
                 </router-link>
             </li>
             <li class="nav-item">
+                <router-link class="nav-link" data-toggle="collapse" :to="{name:'DisabilityAssesment'}" aria-expanded="false"
+                    aria-controls="form-elements">
+                    <i class="typcn typcn-film menu-icon"></i>
+                    <span class="menu-title">Disability Assesment Tools</span>
+                </router-link>
+            </li>
+            <li class="nav-item">
                 <router-link class="nav-link" data-toggle="collapse" :to="{name:'circulation'}" aria-expanded="false"
                     aria-controls="ui-basic">
                     <i class="typcn typcn-document-text menu-icon"></i>
@@ -214,13 +221,6 @@ import { RouterLink } from 'vue-router';
                     aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Online Admission</span>
-                </router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link" data-toggle="collapse" :to="{name:'DisabilityAssesment'}" aria-expanded="false"
-                    aria-controls="form-elements">
-                    <i class="typcn typcn-film menu-icon"></i>
-                    <span class="menu-title">Disability Assesment Tools</span>
                 </router-link>
             </li>
             <li class="nav-item">

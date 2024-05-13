@@ -12,11 +12,14 @@ class organization extends Model
     public function admission_circular() {
         return $this->hasMany(admission_circular::class);
     }
-    public function institute_type() {
-        return $this->hasMany(institute_type::class);
-    }
     public function admission_fee() {
         return $this->hasMany(admission_fee::class);
+    }
+
+
+
+    public function institute_type() {
+        return $this->hasMany(institute_type::class);
     }
     public function applicant_assesment() {
         return $this->hasMany(applicant_assesment::class);

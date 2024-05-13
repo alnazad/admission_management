@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('student_id')->nullable();
             $table->string('student_name')->nullable();
             $table->decimal('fee',10,2)->nullable();
-            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }

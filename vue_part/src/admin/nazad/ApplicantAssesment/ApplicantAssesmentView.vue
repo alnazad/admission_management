@@ -41,20 +41,6 @@
                         <a style="background: red;margin-left: 5px;" class="btn btn-danger" href=""><i class="fa-solid fa-trash" /></a>
                     </td>
                 </tr>
-                <!-- <tr v-for="(data, k) in list" :key="k">
-        <td>{{++k}}</td>
-        <td>{{ data.income_category.name }}</td>
-        <td>{{ data.date }}</td>
-        <td>{{ data.employee.people.name }}</td>
-        <td>{{ data.amount }}</td>
-        <td>{{ data.details }}</td>
-        <td>{{ data.income_source.name}}</td>
-        <td>
-            <div><button class="btn btn-success" @click="update(data.id)">Edit</button>
-                <button class="btn btn-danger" @click="deleteIncome(data.id)">Delete</button>
-            </div>
-        </td>
-    </tr> -->
             </table>
         </div>
     </div>
