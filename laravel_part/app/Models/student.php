@@ -19,6 +19,6 @@ class student extends Model
         return $this->hasone(Gardian::class);
     }
     public function applicant_assesment(){
-        return $this->hasMany(applicant_assesment::class);
+        return $this->hasOne(applicant_assesment::class);
     }
 }

@@ -23,7 +23,8 @@ class ApplicantAssesmentController extends Controller
      */
     public function create()
     {
-        //
+        $applicant_assesment=applicant_assesment::orderBy('assesment_markes','desc')->with('student','student.class_name','assesment_tools','assesment_tools.institute','institute_types','institute_types.organization')->get();
+        return $this->sendResponse($applicant_assesment, 'applicant_assesment list fetched successfully!');
     }
 
     /**

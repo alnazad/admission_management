@@ -28,7 +28,18 @@ class AdmissionFeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'fee' => 'required',
+            'student_id' => 'required',
+            'institute_id' => 'required',
+            'assesment_tools_id' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors(), 422);
+        }
+        $input = $request->all();
+        $applicant_assesment =applicant_assesment::create($input);
+        return $this->sendResponse($applicant_assesment, 'created successfully!');
     }
 
     /**

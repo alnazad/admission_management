@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2024 at 09:14 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: May 13, 2024 at 09:08 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,7 +82,8 @@ CREATE TABLE `applicant_assesments` (
 
 INSERT INTO `applicant_assesments` (`id`, `institute_types_id`, `assesment_tools_id`, `student_id`, `assesment_markes`, `remarks`, `created_at`, `updated_at`) VALUES
 (1, 3, 9, 1, 50.00, 'gggg', '2024-05-12 12:32:34', '2024-05-12 12:32:34'),
-(2, 3, 9, 2, 60.00, 'dfdfd', '2024-05-12 12:38:33', '2024-05-12 12:38:33');
+(2, 3, 9, 2, 60.00, 'dfdfd', '2024-05-12 12:38:33', '2024-05-12 12:38:33'),
+(3, 3, 9, 2, 80.00, 'blind', '2024-05-13 01:01:44', '2024-05-13 01:01:44');
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,9 @@ INSERT INTO `assesment_tools` (`id`, `name`, `institute_id`, `created_at`, `upda
 (15, 'Intelligence Test', 7, NULL, NULL),
 (16, 'Development Sheduels Test', 2, NULL, NULL),
 (17, 'Development Sheduels Test', 4, NULL, NULL),
-(18, 'Development Sheduels Test', 6, NULL, NULL);
+(18, 'Development Sheduels Test', 6, NULL, NULL),
+(21, 'sdfdsfasd', 4, '2024-05-13 00:58:11', '2024-05-13 00:58:11'),
+(22, 'fghfhsfgd', 5, '2024-05-13 00:59:34', '2024-05-13 00:59:34');
 
 -- --------------------------------------------------------
 
@@ -398,7 +401,8 @@ CREATE TABLE `online_admissions` (
 INSERT INTO `online_admissions` (`id`, `organization_id`, `institute_id`, `student_id`, `created_at`, `updated_at`) VALUES
 (6, 2, 5, 1, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
 (7, 1, 3, 2, '2024-05-08 12:22:12', '2024-05-08 12:22:12'),
-(9, 2, 5, 4, '2024-05-12 07:51:58', '2024-05-12 07:51:58');
+(9, 2, 5, 4, '2024-05-12 07:51:58', '2024-05-12 07:51:58'),
+(10, 1, 3, 5, '2024-05-13 00:57:29', '2024-05-13 00:57:29');
 
 -- --------------------------------------------------------
 
@@ -551,7 +555,8 @@ CREATE TABLE `students` (
 INSERT INTO `students` (`id`, `name`, `gender`, `blood_group`, `nationality`, `disability_discription`, `father_name`, `mother_name`, `email`, `mobile`, `religion`, `assesment_tool_id`, `contract_no`, `birth_date`, `birth_certificate_no`, `address`, `class_name_id`, `siblings_id`, `marks`, `created_at`, `updated_at`) VALUES
 (1, 'Helal', 'male', NULL, NULL, NULL, 'Lal', 'Nill', NULL, '10698547', NULL, NULL, NULL, '2024-05-08', '015698', 'dhaka', 9, NULL, NULL, '2024-05-08 10:26:24', '2024-05-08 10:26:24'),
 (2, 'fazle', 'male', NULL, NULL, NULL, 'le', 'faz', NULL, '12364789', NULL, NULL, NULL, '2024-05-10', '12654798', 'mugda', 6, NULL, NULL, '2024-05-08 12:22:12', '2024-05-08 12:22:12'),
-(4, 'jodu', 'Male', NULL, NULL, NULL, 'modu', 'kodu', NULL, '01254', NULL, NULL, NULL, '2024-05-12', '0158595', 'dhaka', 9, NULL, NULL, '2024-05-12 07:51:58', '2024-05-12 07:51:58');
+(4, 'jodu', 'Male', NULL, NULL, NULL, 'modu', 'kodu', NULL, '01254', NULL, NULL, NULL, '2024-05-12', '0158595', 'dhaka', 9, NULL, NULL, '2024-05-12 07:51:58', '2024-05-12 07:51:58'),
+(5, 'Rakib', 'Male', NULL, NULL, NULL, 'Rohim', 'Amina', NULL, '01883331370', NULL, NULL, NULL, '2024-05-13', '1236547889', 'dhaka', 6, NULL, NULL, '2024-05-13 00:57:29', '2024-05-13 00:57:29');
 
 -- --------------------------------------------------------
 
@@ -778,7 +783,7 @@ ALTER TABLE `admission_fees`
 -- AUTO_INCREMENT for table `applicant_assesments`
 --
 ALTER TABLE `applicant_assesments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `areas`
@@ -790,7 +795,7 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT for table `assesment_tools`
 --
 ALTER TABLE `assesment_tools`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `class_names`
@@ -850,7 +855,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `online_admissions`
 --
 ALTER TABLE `online_admissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `organizations`
@@ -874,7 +879,7 @@ ALTER TABLE `siblings`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
