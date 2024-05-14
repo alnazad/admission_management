@@ -28,7 +28,7 @@
                             <h6>
                                 Circular Name : <h5>{{ list.circular_name }}</h5>
                                 Circular Description : <h5>{{ list.circular_discription}}</h5>
-                                School Name: <h5>{{ list.institute.name }}</h5>
+                                <!-- School Name: <h5>{{ list.institute.name }}</h5> -->
                                 Published Date: <h5>{{ list.circular_date }}</h5>
                                 Last Date: <h5>{{ list.last_date }}</h5>
 
@@ -72,7 +72,7 @@ export default {
                 .then((result) => {
                     this.list = result.data.data[0]
 
-                    console.log(result.data.data)
+                    console.log(result.data.data[0])
 
                 });
         }

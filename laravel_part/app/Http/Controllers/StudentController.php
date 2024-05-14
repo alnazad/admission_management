@@ -54,16 +54,19 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, student $student)
+    public function update(Request $request, string $id)
     {
-        //
+        $input = $request->all();
+        $student = student::find($id)->update($input);
+        return $this->sendResponse($student, 'Student updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(student $student)
+    public function destroy(string $id)
     {
-        //
+        $student = student::find($id)->delete();
+        return $this->sendResponse($student, 'Student deleted successfully!');
     }
 }
