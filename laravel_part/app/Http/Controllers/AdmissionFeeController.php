@@ -76,8 +76,9 @@ class AdmissionFeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(admission_fee $admission_fee)
+    public function destroy(string $id)
     {
-        //
+        $admission_fee = admission_fee::find($id)->delete();
+        return $this->sendResponse($admission_fee, 'Student deleted successfully!');
     }
 }
