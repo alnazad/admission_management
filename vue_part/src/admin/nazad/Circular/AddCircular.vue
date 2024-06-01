@@ -70,8 +70,8 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            urlO: 'http://localhost:8000/api/admin/organizations',
-            url: 'http://localhost:8000/api/admin/admission_circulars',
+            urlO: 'https://admission.devnazad.com/laravel_part/api/admin/organizations',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/admission_circulars',
             listO: [],
             listT: [],
             listI: [],
@@ -98,7 +98,7 @@ export default {
         },
         getInstituteType() {
             console.log(this.organization_id)
-            axios.get(`http://localhost:8000/api/admin/institute_types/create/?id=${this.organization_id}`)
+            axios.get(`https://admission.devnazad.com/laravel_part/api/admin/institute_types/create/?id=${this.organization_id}`)
                 .then((result) => {
                     this.listT = result.data.data
                     // console.log(result.data.data)
@@ -106,7 +106,7 @@ export default {
         },
         getInstitute() {
             console.log(this.organization_id)
-            axios.get(`http://localhost:8000/api/admin/institutes/create/?id=${this.institute_types_id}`)
+            axios.get(`https://admission.devnazad.com/laravel_part/api/admin/institutes/create/?id=${this.institute_types_id}`)
                 .then((result) => {
                     this.listI = result.data.data
                     console.log(result.data.data)

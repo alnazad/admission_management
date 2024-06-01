@@ -46,7 +46,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/admission_circulars',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/admission_circulars',
             list: '',
 
         }

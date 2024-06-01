@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('admission_fees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('organization_id')->nullable();
-            $table->integer('institute_type_id')->nullable();
-            $table->integer('institute_id')->nullable();
-            $table->string('student_id')->nullable();
+            $table->unsignedBigInteger('organization_id')->nullable();
+            $table->unsignedBigInteger('institute_type_id')->nullable();
+            $table->unsignedBigInteger('institute_id')->nullable();
+            $table->unsignedBigInteger('student_id')->nullable();
             $table->string('student_name')->nullable();
             $table->decimal('fee',10,2)->nullable();
             $table->timestamps();

@@ -6,12 +6,8 @@
         </header>
 
         <nav class="nava">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Services</a>
-            <a href="#">Programs</a>
-            <a href="#">Contact</a>
-            <a href="login">Login</a>
+            <RouterLink :to="{ name: 'login' }" class="btn"
+                    style="order: 2; background-color:red; color: white;font-weight: bold;">Login</RouterLink>
         </nav>
 
         <div class="containera">
@@ -41,18 +37,15 @@
                 </div>
             </ul>
 
-            <h2>Latest Programs</h2>
-            <p>Check out our latest programs aimed at addressing pressing social issues and improving the well-being of
-                all citizens.</p>
-
             <h2>Contact Us</h2>
-            <p>If you have any questions or need assistance, feel free to contact us:</p>
-            <p>Email: info@socialwelfare.gov.bd</p>
-            <p>Phone: +880 2 12345678</p>
+            <h5>Just login to see full admission process</h5>
+            <h5>If do not understand any thing fell free to contract me</h5>
+            <h5>Email: abdullahalnazad850@gmail.com</h5>
+            <h5>Phone: +8801580331370</h5>
         </div>
 
         <footer>
-            &copy; 2024 Ministry of Social Welfare, Bangladesh. All rights reserved.
+            &copy; 2024 devnazad.com, Bangladesh. All rights reserved.
         </footer>
     </body>
 </template>
@@ -61,7 +54,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/admission_circulars',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/admission_circulars',
             list: '',
 
         }

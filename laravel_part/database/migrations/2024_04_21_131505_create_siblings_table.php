@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('gander')->nullable();
-            $table->integer('class_names_id')->nullable();
+            $table->unsignedBigInteger('class_names_id')->nullable();
             $table->string('group_name')->nullable();
             $table->timestamps();
         });

@@ -21,13 +21,13 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('mobile')->nullable();
             $table->string('religion')->nullable();
-            $table->foreignId('assesment_type_id')->nullable();
-            $table->foreignId('assesment_tool_id')->nullable();
+            $table->unsignedBigInteger('assesment_type_id')->nullable();
+            $table->unsignedBigInteger('assesment_tool_id')->nullable();
             $table->string('address')->nullable();
             $table->date('birth_date')->nullable();
             $table->date('birth_certificate_no')->nullable();
-            $table->foreignId('class_name_id')->nullable();
-            $table->foreignId('siblings_id')->nullable();
+            $table->unsignedBigInteger('class_name_id')->nullable();
+            $table->unsignedBigInteger('siblings_id')->nullable();
             $table->decimal('marks',10,2)->nullable();
             $table->timestamps(); 
         });

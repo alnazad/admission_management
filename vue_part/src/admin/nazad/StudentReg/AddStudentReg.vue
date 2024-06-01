@@ -81,7 +81,8 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/students',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/students',
+            
             list: [],
             student_id: "",
             institute_type_id: '',
@@ -108,7 +109,7 @@ export default {
         getName() {
             console.log(this.student_id)
             if (this.student_id !== '') {
-                axios.get(`http://localhost:8000/api/admin/students/create/?id=${this.student_id}`)
+                axios.get(`https://admission.devnazad.com/laravel_part/api/admin/students/create/?id=${this.student_id}`)
                     .then((result) => {
 
                         if (result.data.data.length !== 0) {
