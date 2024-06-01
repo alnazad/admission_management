@@ -26,13 +26,12 @@
                                     class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
                             </form>
                             <hr class="my-4">
+                            <div style="color: blue;">
+                                <div class="h6"><span>Email : </span>  <span style="color: red;">abdullah@gmail.com</span> </div>
+                            <div class="h6" style="margin-left: -90px;"><span>Password :</span><span style="color: red;">&nbsp; 12345</span> </div>
+                            </div>
 
-                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-primary"
-                                style="background-color: #dd4b39;" type="submit"><i class="fab fa-google me-2"></i> Sign
-                                in with google</button>
-                            <button data-mdb-button-init data-mdb-ripple-init
-                                class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
-                                type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -45,7 +44,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/login',
+            url: 'https://admission.devnazad.com/laravel_part/api/login',
             email: '',
             password: '',
             rememberPassword: false

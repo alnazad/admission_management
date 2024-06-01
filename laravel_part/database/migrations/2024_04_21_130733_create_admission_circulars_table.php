@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('admission_circulars', function (Blueprint $table) {
             $table->id();
             $table->string('circular_name');
-            $table->integer('organization_id');
-            $table->integer('institute_id');
+            $table->unsignedBigInteger('organization_id');
+            $table->unsignedBigInteger('institute_id');
             $table->longText('circular_discription');
             $table->date('circular_date');
             $table->date('last_date');

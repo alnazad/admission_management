@@ -50,7 +50,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/students',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/students',
             list: [],
 
         }

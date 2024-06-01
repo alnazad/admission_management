@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('class_names', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->foreignId('institutes_id');
+            $table->unsignedBigInteger('institutes_id');
             $table->timestamps();
         });
     }

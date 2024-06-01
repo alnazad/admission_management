@@ -38,7 +38,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/assesment_tools',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/assesment_tools',
             list: '',
 
         }

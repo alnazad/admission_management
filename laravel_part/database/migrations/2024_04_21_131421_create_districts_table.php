@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->foreignId('divisions_id')->nullable();
+            $table->unsignedBigInteger('divisions_id')->nullable();
             $table->timestamps();
         });
     }

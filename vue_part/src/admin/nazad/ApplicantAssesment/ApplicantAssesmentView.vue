@@ -38,7 +38,7 @@
                     <td>
                         <a style="background: red;" class="btn btn-primary" href="">
                             <i class="fa-solid fa-pen-to-square" /></a>
-                        <a style="background: red;margin-left: 5px;" class="btn btn-danger" href=""><i class="fa-solid fa-trash" /></a>
+                        <a style="background: red;margin-left: 5px;" class="btn btn-danger" @click="deleteOnlineAdmission(data.id)"><i class="fa-solid fa-trash" /></a>
                     </td>
                 </tr>
             </table>
@@ -50,7 +50,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/applicant_assesments',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/applicant_assesments',
             list: [],
 
         }
@@ -64,6 +64,15 @@ export default {
                 });
 
         },
+        async deleteOnlineAdmission(id) {
+            try {
+                await axios.delete(`${this.url}/${id}`);
+                this.getAssesment(); // Call getIncomeList after successful deletion
+            } catch (error) {
+                console.error("Error deleting User:", error);
+                // Handle error as needed (show user message, etc.)
+            }
+        }
     },
     mounted() {
         this.getAssesment()

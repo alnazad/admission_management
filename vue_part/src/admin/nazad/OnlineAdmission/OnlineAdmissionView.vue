@@ -53,10 +53,10 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            url: 'http://localhost:8000/api/admin/online_admissions',
-            urlI: 'http://localhost:8000/api/admin/institute_types',
-            urlC: 'http://localhost:8000/api/admin/class_names',
-            urlD: 'http://localhost:8000/api/admin/institutes',
+            url: 'https://admission.devnazad.com/laravel_part/api/admin/online_admissions',
+            urlI: 'https://admission.devnazad.com/laravel_part/api/admin/institute_types',
+            urlC: 'https://admission.devnazad.com/laravel_part/api/admin/class_names',
+            urlD: 'https://admission.devnazad.com/laravel_part/api/admin/institutes',
             list: '',
             listi: [],
             listc: [],
